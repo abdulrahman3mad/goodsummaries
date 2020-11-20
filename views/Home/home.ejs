@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/mainpage.css">
+
+    <title>Goodsummaries-Home</title>
+</head>
+
+<body>
+    <%-include("../portials/header")%>
+    <%if(user){%>
+    <div class="welcomeAlert">Welcome <%=user.name%> to goodsummaries website!</div>
+    <%}%>
+    <!--start nav&cover-->
+    <section class="webinfo">
+        <div class="infoimage">
+            <div class="overflow"></div>
+            <div class="coverText">
+                <h1 class="d-none d-lg-block">Read and make us read</h1>
+                <p class="d-none d-lg-block">Share your summaries, or read others</p>
+                <%if(!user){%>
+    <a href="/login" class="publish-icon d-none d-lg-block"><span class="publish">Publish </span></a>
+    <%}%>
+            </div>
+        </div>
+    </section>
+    <!--end nav&cover-->
+    <div class="saveedandall-books">
+        <div class="container">
+            <div class="row">
+                <!--start search form -->
+                <div class="books-display col-lg-10 col-12">
+                    <form action="/search" method="GET" class="mainform">
+                        <div class=container>
+                            <div class="row">
+                                <div class="title col-xl-auto col-6 ">
+                                    <label for="exampleInputPassword1 title">Title</label>
+                                    <input type="text" name="Title" class="form-control Title"
+                                        id="exampleInputPassword1" placeholder="Harry Potor">
+                                </div>
+                                <div class="Category-select col-xl-auto col-6">
+                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Category</label>
+                                    <select class="custom-select my-1 mr-sm-2 Category" id="inlineFormCustomSelectPref"
+                                        name="Category">
+                                        <option value="All"> All</option>
+                                        <option value="Fantsy">Fantsy</option>
+                                        <option value="Drama">Drama</option>
+                                        <option value="Logic">Logic</option>
+                                        <option value="Romance">Romance</option>
+                                        <option value="Mystery">Mystery</option>
+                                        <option value="Religious books">Religious books</option>
+                                        <option value="Inspirational">Inspirational</option>
+                                        <option value="Science">Science</option>
+                                        <option value="Self-help">Self-help</option>
+                                        <option value="Literary">Literary</option>
+                                        <option value="psychology">psychology</option>
+                                        <option value="history">history</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <!--end search form -->
+                    <!--start books display-->
+                    <div class="books-section">
+                        <div class="books">
+                            <%if(books[0]){%>
+    <%books.forEach((book)=>{%>
+    <div class="book">
+        <div class="img"> <img class="book_img" src="<%=book.coverimagepath%>" alt="Card image cap">
+        </div>
+        <h5 class="book-title"><%=book.Title%></h5>
+        <p class="Summaryperson">By
+            <a href="/profilePage/<%=book.Summaryperson%>"><%=book.Summaryperson%></a>
+        </p>
+        <a href="/book/<%=book._id%>" class="read-button">Read</a>
+    </div>
+    <% })}else{%>
+    <div class="empty-img">
+        <img src="../images/empty.png" height=200px alt="empty" />
+    </div>
+    <%}%>
+                        </div>
+                    </div>
+                </div>
+                <%if(user){%>
+    <%if(savedBooks[0]){%>
+
+
+    <div class="saved-books float-right col-md-2 col-12">
+        <h2>Last saved Books</h2>
+        <div class="books">
+            <div class="limitedbooks">
+                <div class="book">
+                    <div class="img"> <img class="book_img" src="<%=savedBooks[0].coverimagepath%>"
+                            alt="Card image cap">
+                    </div>
+                    <h5 class="book-title">
+                        <%=savedBooks[0].Title%></h5>
+                    <p class="Summaryperson">By <a
+                            href="/personalpage/<%=savedBooks[0].Summaryperson%>"><%=savedBooks[0].Summaryperson%></a>
+                    </p>
+                    <a href="/book/<%=savedBooks[0]._id%>" class="read-button">Read</a>
+                </div>
+
+            </div>
+
+
+
+            <div class="notLimitedBooks d-none">
+                <%let allBook=(savedBooks.length)-1;
+                                        while(allBook>=0){%> <div class="book">
+                    <div class="img"> <img class="book_img" src="<%=savedBooks[allBook].coverimagepath%>"
+                            alt="Card image cap">
+                    </div>
+                    <h5 class="book-title"><%=savedBooks[allBook].Title%></h5>
+                    <p class="Summaryperson">By <a
+                            href="/personalpage/<%=savedBooks[allBook].Summaryperson%>"><%=savedBooks[allBook].Summaryperson%></a>
+                    </p>
+                    <a href="/book/<%=savedBooks[allBook]._id%>" class="read-button">Read</a>
+                </div>
+                <%allBook--;}%>
+            </div>
+        </div>
+        <a class="see see-more">See More</a>
+        <a class="see see-less d-none">See Less</a>
+
+    </div>
+    </div>
+    </div>
+    <%}}%>
+
+    <!--end books display-->
+    <script>
+
+        window.onload = () => {
+            setTimeout(() => {
+                document.querySelector(".welcomeAlert").style.display = "none";
+            }, 5000)
+        }
+
+
+        let Title = document.querySelector(".Title");
+        let Category = document.querySelector(".Category")
+        let form2 = document.querySelector("form");
+
+        Title.addEventListener("change", () => {
+            form2.submit();
+        })
+        Category.addEventListener("change", () => {
+            form2.submit();
+        })
+
+        let limitedBooks = document.querySelector(".limitedbooks");
+        let notLimitedBooks = document.querySelector(".notLimitedBooks");
+        let seeMoreOption = document.querySelectorAll(".see");
+
+        seeMoreOption[0].addEventListener("click", () => {
+            notLimitedBooks.classList.remove("d-none");
+            limitedBooks.classList.add("d-none");
+            seeMoreOption[0].classList.add("d-none");
+            seeMoreOption[1].classList.remove("d-none")
+        })
+        seeMoreOption[1].addEventListener("click", () => {
+            notLimitedBooks.classList.add("d-none");
+            limitedBooks.classList.remove("d-none");
+            seeMoreOption[1].classList.add("d-none");
+            seeMoreOption[0].classList.remove("d-none")
+        })
+
+
+
+    </script>
+    <%-include("../portials/scripts.ejs")%>

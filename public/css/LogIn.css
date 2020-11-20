@@ -1,0 +1,85 @@
+/*start main style*/
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; }
+
+body {
+  font-family: Arial;
+  color: #b4916b;
+  background-color: #f8f2e9; }
+
+/*end main style*/
+/*start section style*/
+.errorAlert {
+  padding: 10px 0px;
+  background-color: #E8505B;
+  color: #f8f2e9;
+  font-weight: bold;
+  display: none; }
+
+section {
+  text-align: center; }
+  section img {
+    width: 25%; }
+  section form {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    section form input {
+      font-size: 16px;
+      border-radius: 5px;
+      width: 300px;
+      margin-bottom: 20px;
+      display: block;
+      padding: 12px;
+      outline: none;
+      border: none;
+      box-shadow: 0 1px 3px #bcbab6; }
+    section form .checkbox {
+      margin-top: 5px;
+      font-size: 14px;
+      opacity: 83%;
+      margin-right: 110px; }
+    section form input[type="submit"] {
+      width: 100px;
+      font-weight: bold;
+      margin-top: 12px;
+      border-radius: 30px;
+      border: 0;
+      background-color: #44B4B0;
+      color: white;
+      padding: 9px;
+      box-shadow: none;
+      cursor: pointer; }
+      section form input[type="submit"]:hover {
+        background-color: #247e7e; }
+  section ::placeholder {
+    opacity: 0.5;
+    color: #b4916b; }
+
+.error {
+  color: #fb3737 !important;
+  opacity: 0.7; }
+
+.haveornew {
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  margin-top: 8px; }
+
+.haveornew p {
+  opacity: 0.7; }
+
+.haveornew span {
+  margin: 0 9px; }
+
+.haveornew a {
+  color: #b4916b;
+  font-weight: bold; }
+
+/*end section style*/
+
+/*# sourceMappingURL=logIn.css.map */

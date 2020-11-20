@@ -1,0 +1,39 @@
+<!--start navbar-->
+<nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container">
+        <a class="navbar-brand" href="/home"><img src="../../images/logo.png" height=30px> </a>
+        <button class="navbar-toggler text-left" type="button" data-toggle="collapse" data-target="#home"
+            aria-controls="home" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse text-right" id="home">
+            <ul class="navbar-nav ml-auto list_items text-md-lg text-center">
+                <%if(user){%>
+                <li class="nav-item">
+                    <a class="nav-link" href="/home">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/publish">Publish</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/profilePage/<%=user.name%>"><i class="fas fa-user-circle"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
+                </li>
+
+                <%}else{%>
+                <li class="nav-item login">
+                    <a class="nav-link " href="/login">Login</a>
+                </li>
+                <li class="nav-item signup">
+                    <a class="nav-link " href="/signup">Signup</a>
+                </li>
+                <%}%>            
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--end navbar-->
+    

@@ -1,0 +1,15 @@
+.mce-spellchecker-word {
+  background-image: url('../../../../svg/spellchecker-word-marker.svg');
+  background-position: 0 calc(100% + 1px);
+  background-repeat: repeat-x;
+  background-size: auto 6px;
+  cursor: default;
+  height: 2rem;
+}
+.mce-spellchecker-grammar {
+  background-image: url('../../../../svg/spellchecker-grammar-marker.svg');
+  background-position: 0 calc(100% + 1px);
+  background-repeat: repeat-x;
+  background-size: auto 6px;
+  cursor: default;
+}

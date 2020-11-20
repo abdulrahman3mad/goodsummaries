@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="903" height="164" viewBox="0 0 903 164">
+  <g id="Group_15" data-name="Group 15" transform="translate(-733.127 -464.058)">
+    <g id="Component_4_1" data-name="Component 4 – 1" transform="translate(733.127 464.058)">
+      <g id="Rectangle_3" data-name="Rectangle 3" transform="translate(844 61)" fill="#f4f1ea" stroke="#707070" stroke-width="1">
+        <rect width="59" height="87" stroke="none"/>
+        <rect x="0.5" y="0.5" width="58" height="86" fill="none"/>
+      </g>
+      <g id="Rectangle_4" data-name="Rectangle 4" transform="translate(840 61)" fill="#fff" stroke="#707070" stroke-width="0.5">
+        <rect width="59" height="87" stroke="none"/>
+        <rect x="0.25" y="0.25" width="58.5" height="86.5" fill="none"/>
+      </g>
+      <g id="Rectangle_5" data-name="Rectangle 5" transform="translate(292 40)" fill="#f4f1ea" stroke="#707070" stroke-width="1">
+        <rect width="68" height="101" stroke="none"/>
+        <rect x="0.5" y="0.5" width="67" height="100" fill="none"/>
+      </g>
+      <g id="Rectangle_6" data-name="Rectangle 6" transform="translate(290 40)" fill="#fff" stroke="#707070" stroke-width="0.5">
+        <rect width="68" height="101" stroke="none"/>
+        <rect x="0.25" y="0.25" width="67.5" height="100.5" fill="none"/>
+      </g>
+      <text id="goodSummaries" transform="translate(0 133)" fill="#b4916b" font-size="123" font-family="SegoeUI, Segoe UI"><tspan x="0" y="0">goodSummaries</tspan></text>
+    </g>
+  </g>
+</svg>

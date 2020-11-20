@@ -1,0 +1,154 @@
+
+$mainColor: #b4916b;
+$secondaryColor2: #f8f2e9;
+$accentColor: #53BCBC;
+$mainfont: Arial;
+$activecolor:#307474;
+
+/* start personal_data style*/
+.personal_data_father{
+  margin-top:50px;
+}
+.profile_data .img {
+  border:1px solid $accentColor;
+  border-radius: 50%;
+  width:100px;
+  height:100px;
+  display: inline-block;
+
+}
+.profile_data .img img{
+  width:100%;
+  border-radius: 50%;
+}
+.personal_name {
+  margin-left:10px;
+  display: inline-block;  
+  color:$activecolor !important
+}
+.personal_data_father a{
+    font-size:10px;
+    display: block;
+}
+/* end personal_data style*/
+
+/*start book style*/
+/*start books style*/
+
+ 
+.books-section h2{
+    color:$mainColor;
+    margin-top:40px;
+  }
+.books{
+  display: flex;
+  flex-wrap: wrap;
+  margin-top:20px;
+  .book{
+    background-color:white;
+    padding:10px;
+    margin-right:10px;
+    height:100%;
+    .img{
+      max-width:200px;
+      img{
+        max-width:100%; 
+      }
+    }
+    h5{
+      margin:15px 0;
+      color:$mainColor;
+      font-weight: bold;
+      font-size:17px;
+      max-width:200px;
+    }
+    a.read-button{
+      margin-top:5px;
+      color:white ;
+      background-color:$accentColor;
+      padding:5px 10px;
+      font-size:12px;
+      border-radius: 10px;
+    }
+  }
+}
+
+/*end books style*/
+
+//for editpersonalpage
+
+.errorAlert{
+  text-align: center;
+  padding:6px 0px;
+  background-color:#E8505B;
+  color:$secondaryColor2;
+  font-weight: bold;
+  display: none;
+}
+
+input[type=file]{
+background-color:black
+}
+
+input{
+    
+    margin-top:10px;
+    padding:5px 5px;
+    background-color:inherit;
+    border-radius: 5px;
+    font-size:20px;
+    font-weight: bold;
+    color:$mainColor;
+    border:1px solid $accentColor;
+    
+}
+.pheader{
+    margin-top:20px;
+    display: flex;
+    flex-direction: column;
+}
+.pheader img{
+    
+    margin-top:20px;
+    width:30%;
+    width:120px;
+    height:120px;
+    border-radius: 50%;
+}
+.filepond--root {
+    max-height: 10em;
+    max-width: 8em;
+  }
+  
+  .filepond--item-panel {
+    background-color: black;
+  }
+  
+.pheader button{
+    display: block;
+    background-color:$accentColor;
+    border:none;
+    color:$secondaryColor2;
+    padding:5px 10px;
+    border-radius: 5px;
+    margin-top:10px;
+    &:hover{
+      background-color:$activecolor
+    }
+}
+
+a.cancel {
+  background-color: rgb(192, 24, 24);
+  margin-top: 20px;
+  color: white;
+  border: none;
+  font-size: 15px;
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+
+a{
+  text-decoration: none;
+}
+

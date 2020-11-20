@@ -1,0 +1,99 @@
+/*start main style*/
+* {
+  box-sizing: border-box; }
+
+body {
+  background-color: #F8F2E9;
+  margin: 0;
+  padding: 0; }
+
+/*start main style*/
+/*start nav style*/
+nav {
+  background-color: #B4916B; }
+  nav .list_items a {
+    color: #F8F2E9 !important; }
+  nav .list_items li.active a,
+  nav .list_items li:not(.signup) a:hover {
+    color: #53BCBC !important; }
+  nav i.fa-user-circle {
+    font-size: 20px; }
+
+/*end nav style*/
+/*start landingpage style*/
+.landingpageimg {
+  background-color: #F8F2E9;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 8; }
+
+/*end landingpage style*/
+li {
+  margin: 0 5px; }
+
+li.signup {
+  padding: 0 12px !important;
+  border-radius: 15px;
+  background-color: #53BCBC !important; }
+  li.signup:hover {
+    background-color: #3d9999 !important; }
+
+/*start bookinfo style*/
+.publish {
+  margin-top: 30px; }
+  .publish .ui {
+    margin-bottom: 50px; }
+  .publish .title {
+    display: block; }
+  .publish label {
+    margin-top: 20px;
+    display: block;
+    color: #53BCBC;
+    margin-bottom: 5px; }
+  .publish .filepond--root {
+    max-height: 10em;
+    max-width: 8em; }
+  .publish .filepond--item-panel {
+    background-color: black; }
+  .publish input:not([type="file"]) {
+    border-radius: 4px;
+    outline: none;
+    background: none;
+    border: 0.8px solid black;
+    display: block;
+    margin-bottom: 70px;
+    padding: 7px; }
+  .publish textarea {
+    padding: 20px;
+    font-size: 22px;
+    background-color: inherit;
+    margin-bottom: 60px;
+    line-height: 1.6; }
+  .publish select {
+    background-color: inherit;
+    width: 120px;
+    padding: 3px;
+    color: #B4916B;
+    margin-bottom: 15px; }
+  .publish input[type="submit"] {
+    background-color: #689696 !important;
+    border: none !important;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    color: #F8F2E9;
+    display: block;
+    padding: 10px 30px;
+    font-size: 20px;
+    margin-top: 20px !important; }
+
+a {
+  text-decoration: none;
+  color: #F8F2E9; }
+
+/*# sourceMappingURL=publish.css.map */

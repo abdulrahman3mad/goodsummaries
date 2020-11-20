@@ -1,0 +1,84 @@
+.mce-content-body img[data-mce-selected],
+.mce-content-body video[data-mce-selected],
+.mce-content-body audio[data-mce-selected],
+.mce-content-body object[data-mce-selected],
+.mce-content-body embed[data-mce-selected],
+.mce-content-body table[data-mce-selected] {
+  outline: 3px solid #b4d7ff;
+}
+.mce-content-body hr[data-mce-selected] {
+  outline: 3px solid #b4d7ff;
+  outline-offset: 1px;
+}
+.mce-content-body *[contentEditable=false] *[contentEditable=true]:focus {
+  outline: 3px solid #b4d7ff;
+}
+.mce-content-body *[contentEditable=false] *[contentEditable=true]:hover {
+  outline: 3px solid #b4d7ff;
+}
+.mce-content-body *[contentEditable=false][data-mce-selected] {
+  cursor: not-allowed;
+  outline: 3px solid #b4d7ff;
+}
+.mce-content-body.mce-content-readonly *[contentEditable=true]:focus,
+.mce-content-body.mce-content-readonly *[contentEditable=true]:hover {
+  outline: none;
+}
+.mce-content-body *[data-mce-selected="inline-boundary"] {
+  background-color: #b4d7ff;
+}
+.mce-content-body .mce-edit-focus {
+  outline: 3px solid #b4d7ff;
+}
+.mce-content-body td[data-mce-selected],
+.mce-content-body th[data-mce-selected] {
+  position: relative;
+}
+.mce-content-body td[data-mce-selected]::selection,
+.mce-content-body th[data-mce-selected]::selection {
+  background: none;
+}
+.mce-content-body td[data-mce-selected] *,
+.mce-content-body th[data-mce-selected] * {
+  outline: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+.mce-content-body td[data-mce-selected]::after,
+.mce-content-body th[data-mce-selected]::after {
+  background-color: rgba(180, 215, 255, 0.35);
+  border: 1px solid rgba(180, 215, 255, 0.35);
+  bottom: -1px;
+  content: '';
+  left: -1px;
+  mix-blend-mode: multiply;
+  position: absolute;
+  right: -1px;
+  top: -1px;
+}
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .mce-content-body td[data-mce-selected]::after,
+  .mce-content-body th[data-mce-selected]::after {
+    border-color: rgba(0, 84, 180, 0.35);
+  }
+}
+.mce-content-body img::selection {
+  background: none;
+}
+.ephox-snooker-resizer-bar {
+  background-color: #b4d7ff;
+  opacity: 0;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ephox-snooker-resizer-cols {
+  cursor: col-resize;
+}
+.ephox-snooker-resizer-rows {
+  cursor: row-resize;
+}
+.ephox-snooker-resizer-bar.ephox-snooker-resizer-bar-dragging {
+  opacity: 1;
+}

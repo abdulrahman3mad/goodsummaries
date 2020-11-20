@@ -1,0 +1,130 @@
+.mce-visualblocks p,
+.mce-visualblocks h1,
+.mce-visualblocks h2,
+.mce-visualblocks h3,
+.mce-visualblocks h4,
+.mce-visualblocks h5,
+.mce-visualblocks h6,
+.mce-visualblocks div:not([data-mce-bogus]),
+.mce-visualblocks section,
+.mce-visualblocks article,
+.mce-visualblocks blockquote,
+.mce-visualblocks address,
+.mce-visualblocks pre,
+.mce-visualblocks figure,
+.mce-visualblocks figcaption,
+.mce-visualblocks hgroup,
+.mce-visualblocks aside,
+.mce-visualblocks ul,
+.mce-visualblocks ol,
+.mce-visualblocks dl {
+  background-repeat: no-repeat;
+  border: 1px dashed #bbb;
+  margin-left: 3px;
+  padding-top: 10px;
+}
+.mce-visualblocks p {
+  background-image: url(data:image/gif;base64,R0lGODlhCQAJAJEAAAAAAP///7u7u////yH5BAEAAAMALAAAAAAJAAkAAAIQnG+CqCN/mlyvsRUpThG6AgA7);
+}
+.mce-visualblocks h1 {
+  background-image: url(data:image/gif;base64,R0lGODlhDQAKAIABALu7u////yH5BAEAAAEALAAAAAANAAoAAAIXjI8GybGu1JuxHoAfRNRW3TWXyF2YiRUAOw==);
+}
+.mce-visualblocks h2 {
+  background-image: url(data:image/gif;base64,R0lGODlhDgAKAIABALu7u////yH5BAEAAAEALAAAAAAOAAoAAAIajI8Hybbx4oOuqgTynJd6bGlWg3DkJzoaUAAAOw==);
+}
+.mce-visualblocks h3 {
+  background-image: url(data:image/gif;base64,R0lGODlhDgAKAIABALu7u////yH5BAEAAAEALAAAAAAOAAoAAAIZjI8Hybbx4oOuqgTynJf2Ln2NOHpQpmhAAQA7);
+}
+.mce-visualblocks h4 {
+  background-image: url(data:image/gif;base64,R0lGODlhDgAKAIABALu7u////yH5BAEAAAEALAAAAAAOAAoAAAIajI8HybbxInR0zqeAdhtJlXwV1oCll2HaWgAAOw==);
+}
+.mce-visualblocks h5 {
+  background-image: url(data:image/gif;base64,R0lGODlhDgAKAIABALu7u////yH5BAEAAAEALAAAAAAOAAoAAAIajI8HybbxIoiuwjane4iq5GlW05GgIkIZUAAAOw==);
+}
+.mce-visualblocks h6 {
+  background-image: url(data:image/gif;base64,R0lGODlhDgAKAIABALu7u////yH5BAEAAAEALAAAAAAOAAoAAAIajI8HybbxIoiuwjan04jep1iZ1XRlAo5bVgAAOw==);
+}
+.mce-visualblocks div:not([data-mce-bogus]) {
+  background-image: url(data:image/gif;base64,R0lGODlhEgAKAIABALu7u////yH5BAEAAAEALAAAAAASAAoAAAIfjI9poI0cgDywrhuxfbrzDEbQM2Ei5aRjmoySW4pAAQA7);
+}
+.mce-visualblocks section {
+  background-image: url(data:image/gif;base64,R0lGODlhKAAKAIABALu7u////yH5BAEAAAEALAAAAAAoAAoAAAI5jI+pywcNY3sBWHdNrplytD2ellDeSVbp+GmWqaDqDMepc8t17Y4vBsK5hDyJMcI6KkuYU+jpjLoKADs=);
+}
+.mce-visualblocks article {
+  background-image: url(data:image/gif;base64,R0lGODlhKgAKAIABALu7u////yH5BAEAAAEALAAAAAAqAAoAAAI6jI+pywkNY3wG0GBvrsd2tXGYSGnfiF7ikpXemTpOiJScasYoDJJrjsG9gkCJ0ag6KhmaIe3pjDYBBQA7);
+}
+.mce-visualblocks blockquote {
+  background-image: url(data:image/gif;base64,R0lGODlhPgAKAIABALu7u////yH5BAEAAAEALAAAAAA+AAoAAAJPjI+py+0Knpz0xQDyuUhvfoGgIX5iSKZYgq5uNL5q69asZ8s5rrf0yZmpNkJZzFesBTu8TOlDVAabUyatguVhWduud3EyiUk45xhTTgMBBQA7);
+}
+.mce-visualblocks address {
+  background-image: url(data:image/gif;base64,R0lGODlhLQAKAIABALu7u////yH5BAEAAAEALAAAAAAtAAoAAAI/jI+pywwNozSP1gDyyZcjb3UaRpXkWaXmZW4OqKLhBmLs+K263DkJK7OJeifh7FicKD9A1/IpGdKkyFpNmCkAADs=);
+}
+.mce-visualblocks pre {
+  background-image: url(data:image/gif;base64,R0lGODlhFQAKAIABALu7uwAAACH5BAEAAAEALAAAAAAVAAoAAAIjjI+ZoN0cgDwSmnpz1NCueYERhnibZVKLNnbOq8IvKpJtVQAAOw==);
+}
+.mce-visualblocks figure {
+  background-image: url(data:image/gif;base64,R0lGODlhJAAKAIAAALu7u////yH5BAEAAAEALAAAAAAkAAoAAAI0jI+py+2fwAHUSFvD3RlvG4HIp4nX5JFSpnZUJ6LlrM52OE7uSWosBHScgkSZj7dDKnWAAgA7);
+}
+.mce-visualblocks figcaption {
+  border: 1px dashed #bbb;
+}
+.mce-visualblocks hgroup {
+  background-image: url(data:image/gif;base64,R0lGODlhJwAKAIABALu7uwAAACH5BAEAAAEALAAAAAAnAAoAAAI3jI+pywYNI3uB0gpsRtt5fFnfNZaVSYJil4Wo03Hv6Z62uOCgiXH1kZIIJ8NiIxRrAZNMZAtQAAA7);
+}
+.mce-visualblocks aside {
+  background-image: url(data:image/gif;base64,R0lGODlhHgAKAIABAKqqqv///yH5BAEAAAEALAAAAAAeAAoAAAItjI+pG8APjZOTzgtqy7I3f1yehmQcFY4WKZbqByutmW4aHUd6vfcVbgudgpYCADs=);
+}
+.mce-visualblocks ul {
+  background-image: url(data:image/gif;base64,R0lGODlhDQAKAIAAALu7u////yH5BAEAAAEALAAAAAANAAoAAAIXjI8GybGuYnqUVSjvw26DzzXiqIDlVwAAOw==);
+}
+.mce-visualblocks ol {
+  background-image: url(data:image/gif;base64,R0lGODlhDQAKAIABALu7u////yH5BAEAAAEALAAAAAANAAoAAAIXjI8GybH6HHt0qourxC6CvzXieHyeWQAAOw==);
+}
+.mce-visualblocks dl {
+  background-image: url(data:image/gif;base64,R0lGODlhDQAKAIABALu7u////yH5BAEAAAEALAAAAAANAAoAAAIXjI8GybEOnmOvUoWznTqeuEjNSCqeGRUAOw==);
+}
+.mce-visualblocks:not([dir=rtl]) p,
+.mce-visualblocks:not([dir=rtl]) h1,
+.mce-visualblocks:not([dir=rtl]) h2,
+.mce-visualblocks:not([dir=rtl]) h3,
+.mce-visualblocks:not([dir=rtl]) h4,
+.mce-visualblocks:not([dir=rtl]) h5,
+.mce-visualblocks:not([dir=rtl]) h6,
+.mce-visualblocks:not([dir=rtl]) div:not([data-mce-bogus]),
+.mce-visualblocks:not([dir=rtl]) section,
+.mce-visualblocks:not([dir=rtl]) article,
+.mce-visualblocks:not([dir=rtl]) blockquote,
+.mce-visualblocks:not([dir=rtl]) address,
+.mce-visualblocks:not([dir=rtl]) pre,
+.mce-visualblocks:not([dir=rtl]) figure,
+.mce-visualblocks:not([dir=rtl]) figcaption,
+.mce-visualblocks:not([dir=rtl]) hgroup,
+.mce-visualblocks:not([dir=rtl]) aside,
+.mce-visualblocks:not([dir=rtl]) ul,
+.mce-visualblocks:not([dir=rtl]) ol,
+.mce-visualblocks:not([dir=rtl]) dl {
+  margin-left: 3px;
+}
+.mce-visualblocks[dir=rtl] p,
+.mce-visualblocks[dir=rtl] h1,
+.mce-visualblocks[dir=rtl] h2,
+.mce-visualblocks[dir=rtl] h3,
+.mce-visualblocks[dir=rtl] h4,
+.mce-visualblocks[dir=rtl] h5,
+.mce-visualblocks[dir=rtl] h6,
+.mce-visualblocks[dir=rtl] div:not([data-mce-bogus]),
+.mce-visualblocks[dir=rtl] section,
+.mce-visualblocks[dir=rtl] article,
+.mce-visualblocks[dir=rtl] blockquote,
+.mce-visualblocks[dir=rtl] address,
+.mce-visualblocks[dir=rtl] pre,
+.mce-visualblocks[dir=rtl] figure,
+.mce-visualblocks[dir=rtl] figcaption,
+.mce-visualblocks[dir=rtl] hgroup,
+.mce-visualblocks[dir=rtl] aside,
+.mce-visualblocks[dir=rtl] ul,
+.mce-visualblocks[dir=rtl] ol,
+.mce-visualblocks[dir=rtl] dl {
+  background-position-x: right;
+  margin-right: 3px;
+}

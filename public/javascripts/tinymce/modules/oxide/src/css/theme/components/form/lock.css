@@ -1,0 +1,4 @@
+.tox .tox-lock.tox-locked .tox-lock-icon__unlock,
+.tox .tox-lock:not(.tox-locked) .tox-lock-icon__lock {
+  display: none;
+}

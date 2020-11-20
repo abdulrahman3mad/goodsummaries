@@ -1,0 +1,104 @@
+.tox .tox-color-picker-container {
+  display: flex;
+  flex-direction: row;
+  height: 225px;
+  margin: 0;
+}
+.tox .tox-sv-palette {
+  box-sizing: border-box;
+  display: flex;
+  height: 100%;
+}
+.tox .tox-sv-palette-spectrum {
+  height: 100%;
+}
+.tox .tox-sv-palette,
+.tox .tox-sv-palette-spectrum {
+  width: 225px;
+}
+.tox .tox-sv-palette-thumb {
+  background: none;
+  border: 1px solid black;
+  border-radius: 50%;
+  box-sizing: content-box;
+  height: 12px;
+  position: absolute;
+  width: 12px;
+}
+.tox .tox-sv-palette-inner-thumb {
+  border: 1px solid white;
+  border-radius: 50%;
+  height: 10px;
+  position: absolute;
+  width: 10px;
+}
+.tox .tox-hue-slider {
+  box-sizing: border-box;
+  height: 100%;
+  width: 25px;
+}
+.tox .tox-hue-slider-spectrum {
+  background: -ms-linear-gradient(bottom, #ff0000, #ff0080, #ff00ff, #8000ff, #0000ff, #0080ff, #00ffff, #00ff80, #00ff00, #80ff00, #ffff00, #ff8000, #ff0000);
+  background: linear-gradient(to bottom, #ff0000, #ff0080, #ff00ff, #8000ff, #0000ff, #0080ff, #00ffff, #00ff80, #00ff00, #80ff00, #ffff00, #ff8000, #ff0000);
+  height: 100%;
+  width: 100%;
+}
+.tox .tox-hue-slider,
+.tox .tox-hue-slider-spectrum {
+  width: 20px;
+}
+.tox .tox-hue-slider-thumb {
+  background: white;
+  border: 1px solid black;
+  box-sizing: content-box;
+  height: 4px;
+  width: 100%;
+}
+.tox .tox-rgb-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.tox .tox-rgb-form div {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  width: inherit;
+}
+.tox .tox-rgb-form input {
+  width: 6em;
+}
+.tox .tox-rgb-form input.tox-invalid {
+  /* Need !important to override Chrome's focus styling unfortunately */
+  border: 1px solid red !important;
+}
+.tox .tox-rgb-form .tox-rgba-preview {
+  border: 1px solid black;
+  flex-grow: 2;
+  margin-bottom: 0;
+}
+.tox:not([dir=rtl]) .tox-sv-palette {
+  margin-right: 15px;
+}
+.tox:not([dir=rtl]) .tox-hue-slider {
+  margin-right: 15px;
+}
+.tox:not([dir=rtl]) .tox-hue-slider-thumb {
+  margin-left: -1px;
+}
+.tox:not([dir=rtl]) .tox-rgb-form label {
+  margin-right: .5em;
+}
+.tox[dir=rtl] .tox-sv-palette {
+  margin-left: 15px;
+}
+.tox[dir=rtl] .tox-hue-slider {
+  margin-left: 15px;
+}
+.tox[dir=rtl] .tox-hue-slider-thumb {
+  margin-right: -1px;
+}
+.tox[dir=rtl] .tox-rgb-form label {
+  margin-left: .5em;
+}

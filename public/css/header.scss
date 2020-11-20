@@ -1,0 +1,60 @@
+
+/*start main style*/
+$mainColor:#B4916B;
+$secondaryColor2:#F8F2E9;
+$accentColor:#53BCBC;
+*{
+    box-sizing: border-box;
+}
+body{
+    background-color:$secondaryColor2;
+    margin:0;
+    padding:0;
+}
+/*start main style*/
+
+/*start nav style*/
+
+nav{
+    background-color:$mainColor ;
+    .list_items a{
+        color:$secondaryColor2 !important
+    }
+    .list_items li.active a,
+    .list_items li:not(.signup) a:hover{
+        color:$accentColor !important
+    }
+    i.fa-user-circle{
+        font-size:20px;
+    }    
+}
+
+/*end nav style*/
+
+/*start landingpage style*/
+.landingpageimg{
+    background-color:$secondaryColor2;
+    display: flex;
+    justify-content: center;
+    width:100%;
+    height:100%;
+    position: absolute;
+    left:0;
+    top:0;
+    z-index: 8;
+}
+/*end landingpage style*/
+
+li{
+    margin:0 5px;
+}
+
+li.signup {
+    padding:0 12px !important;
+    border-radius: 15px;
+    background-color:$accentColor !important;
+    &:hover{
+        background-color:#3d9999 !important;
+    }
+}
+

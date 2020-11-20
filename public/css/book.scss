@@ -1,0 +1,114 @@
+    
+$mainColor: #b4916b;
+$secondaryColor2: #f8f2e9;
+$accentColor: #53BCBC;
+$mainfont: Arial;
+
+body{
+    background-color:$secondaryColor2 !important;
+}
+    
+   .book-details{
+    .img {
+        margin-top: 50px;
+        margin-bottom: 30px;
+        width: 200px;
+        height: 200px;  
+        img {
+            display: block;
+            max-width: 100%;
+            max-height: 100%;
+           }  
+          }
+     
+        h1 {
+            font-size: 40px;
+            color:$mainColor;
+            margin-bottom:0;
+        }
+        .thumbs button{
+            background-color:inherit;
+            float:left;      
+         }
+
+        .thumbs i{
+            cursor: pointer;
+            color:$accentColor;
+            font-size:25px;
+            
+            &:hover{
+                transform: scale(1.2);
+            }
+        }
+        .book-category{
+            color:$accentColor;
+            margin-bottom:20px;
+            display: inline-block;
+        }
+        .book-options {margin-right: 700px;}
+
+        button{
+            background-color: $accentColor;
+            float: right;
+            margin: 0 0 0 5px;
+            color: white;
+            border: none;
+            padding: 2px 5px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        .edit {
+            color: #53BCBC;
+            float: right;
+            margin: 0 20px;
+    
+        }
+        .delete {
+            background-color: rgb(192, 24, 24);
+            float: right;
+            margin: 0 0 0 5px;
+            color: white;
+            border: none;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        span.saved{
+            font-weight: bold;
+            float: right;
+            margin: 0 0 0 5px;
+            color: $mainColor;
+            border: none;
+            padding: 2px 5px;
+            border-radius: 5px;
+        }
+        .summary {
+            color: rgb(83, 78, 78);
+            font-size: 17px;
+            line-height: 1.9;
+        }
+        label {
+            display: block;
+            margin-top: 30px;
+        }
+
+        
+        
+   textarea {
+    background-color: inherit;
+    padding: 5px 30px 15px 5px;
+    font-size: 15px;
+    color: rgb(65, 60, 60);
+}
+::placeholder {
+    font-size: 15px;
+}
+
+.image-options-title i {
+    font-size: 20px;
+}
+
+}
+
+
+  

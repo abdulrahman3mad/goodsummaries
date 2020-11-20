@@ -1,0 +1,11 @@
+.mce-content-body figure.align-left {
+  float: left;
+}
+.mce-content-body figure.align-right {
+  float: right;
+}
+.mce-content-body figure.image.align-center {
+  display: table;
+  margin-left: auto;
+  margin-right: auto;
+}

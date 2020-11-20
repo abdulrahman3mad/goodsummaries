@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>edit "<%=book.Title%>"</title>
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/editBook.css">
+    <link rel="stylesheet" href="../../css/">
+
+</head>
+
+<script src="https://cdn.tiny.cloud/1/izfyyegnnafqa89ac21by8or054frlvlnt15wliptepsgr5l/tinymce/5/tinymce.min.js"
+    referrerpolicy="origin"></script>
+
+<script>
+    tinymce.init({
+        selector: '#Summary',
+        height: 400,
+        plugins: 'lists, link, image, media',
+        toolbar: "undo redo | styleselect | bold italic | justifyleft justifycenter justifyright | bullist numlist |forecolor backcolor| preview code",
+
+        menubar: false,
+        setup: function (editor) {
+            editor.on('change', function (e) {
+                editor.save();
+
+
+            });
+        }
+    })
+</script>
+
+<body>
+
+    <%-include("../portials/header")%>
+
+    <section>
+        <div class="container">
+            <form method="POST" action="/book/<%=book._id%>?_method=PUT">
+                <div class="head">
+                    <input name="Title" type="text" class="Title" value="<%=book.Title%>">
+                    <select id="select" required name="Category">
+                        <optgroup label="Category">
+                            <option value="Fantsy">Fantsy</option>
+                            <option value="Drama">Drama</option>
+                            <option value="Logic">Logic</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Mystery">Mystery</option>
+                            <option value="Religious books">Religious books</option>
+                            <option value="Inspirational">Inspirational</option>
+                            <option value="Science">Science</option>
+                            <option value="Self-help">Self-help</option>
+                            <option value="Literary">Literary</option>
+                            <option value="psychology">psychology</option>
+                        </optgroup>
+                    </select>
+                </div>
+                <div class="Summary">
+
+                    <p class="booksummary" id="booksummary"><%=book.Summary%></p>
+                    <textarea rows="10" cols="40" id="Summary" minlength="50" required name="Summary"
+                        class="Summary"></textarea>
+                </div>
+
+                <button type="submit">Publish</button>
+                <a class="cancel" href="/book/<%=book._id%>">Cancel</a>
+            </form>
+        </div>
+    </section>
+    <script>
+        document.getElementById("Summary").defaultValue = document.getElementById("booksummary").textContent;
+
+    </script>
+    <%- include("../portials/scripts")%>

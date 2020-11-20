@@ -1,0 +1,34 @@
+$mainColor:#B4916B;
+$secondaryColor2:#F8F2E9;
+$accentColor:#53BCBC;
+
+
+/*start form-search style*/
+form{
+  margin-top:40px;
+  label{
+    color:$accentColor;
+  }  
+}
+/*end form-search style*/
+
+/*start books style*/
+.card{
+  margin:20px;
+  .card-title{
+    color:$accentColor
+  }
+
+  .card-body .read-button{
+    background-color:$accentColor !important;
+    border:none !important;
+    
+  }
+  .card-body .read-button:hover{
+      background-color:#207979 !important
+  }
+  a.writer{
+    color:$accentColor !important
+  }
+}
+/*end books style*/

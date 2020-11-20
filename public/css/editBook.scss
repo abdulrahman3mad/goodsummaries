@@ -1,0 +1,78 @@
+.head {
+    margin-top: 30px;
+}
+
+input {
+    background-color: inherit;
+    display: block;
+    font-size: 40px;
+    font-weight: bold;
+    color: #B4916B;
+    width: 250px;
+    border: none;
+}
+
+select {
+    width: 100px;
+    font-weight: lighter;
+    font-size: 15px;
+    color: #53BCBC;
+}
+
+section .Summary {
+    margin-top: 20px;
+    color: rgb(83, 78, 78)
+}
+
+section .Summary textarea {
+    font-size: 17px;
+    width: 1000px;
+    line-height: 1.5;
+}
+
+label {
+    display: block;
+    margin-top: 30px;
+}
+
+textarea {
+    background-color: inherit;
+    padding: 5px 30px 15px 5px;
+    font-size: 15px;
+    color: rgb(65, 60, 60);
+}
+
+::placeholder {
+    font-size: 15px;
+}
+
+hr {
+    margin-bottom: 10px;
+    width: 500px;
+    opacity: 0.7;
+}
+
+button {
+    margin-top: 20px;
+    background-color: #53BCBC;
+    color: white;
+    border: none;
+    font-size: 15px;
+    padding: 5px 15px;
+    border-radius: 5px;
+    margin-bottom: 30px;
+}
+
+p {
+    display: none;
+}
+
+a.cancel {
+    background-color: rgb(192, 24, 24);
+    margin-top: 20px;
+    color: white;
+    border: none;
+    font-size: 15px;
+    padding: 5px 15px;
+    border-radius: 5px;
+}

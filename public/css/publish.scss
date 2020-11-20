@@ -1,0 +1,73 @@
+@import "header";
+
+
+/*start bookinfo style*/
+
+.publish {
+  margin-top: 30px;
+  .ui{
+    margin-bottom: 50px; 
+  }
+  .title {
+    display: block;
+  }
+  label {
+    margin-top:20px;
+    display: block;
+    color: $accentColor;
+    margin-bottom: 5px;
+  }
+  .filepond--root {
+    max-height: 10em;
+    max-width: 8em;
+  }
+  .filepond--item-panel {
+    background-color: black;
+  }
+  input:not([type="file"]) {
+    border-radius: 4px;
+    outline: none;
+    background: none;
+    border: 0.8px solid black;
+    display: block;
+    margin-bottom: 70px;
+    padding: 7px;
+  }
+  
+
+textarea {
+  padding: 20px;
+  font-size: 22px;
+  background-color: inherit;
+  margin-bottom: 60px;
+  line-height: 1.6;
+}
+select {
+  background-color: inherit;
+  width: 120px;
+  padding: 3px;
+  color: $mainColor;
+  margin-bottom: 15px;
+}
+input[type="submit"] {
+  background-color: #689696 !important;
+  border: none !important;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  color: $secondaryColor2;
+  display: block;
+  padding: 10px 30px;
+  font-size: 20px;
+  margin-top:20px !important
+}
+}
+
+
+
+
+a{
+  text-decoration: none;
+  color: $secondaryColor2;
+
+}

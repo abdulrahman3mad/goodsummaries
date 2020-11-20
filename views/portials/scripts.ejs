@@ -1,0 +1,39 @@
+<script src="javascripts/jquery-3.5.1.min.js"></script>
+<script src="javascripts/bootstrap.min.js"></script>
+<script src="javascripts/popper.min.js"></script>
+
+<script>
+
+
+    let list_items = document.querySelector("ul");
+
+    if (window.location.href.includes("mainpage") || window.location.href.includes("search")) {
+        list_items.children[1].classList.remove("active");
+        list_items.children[0].classList.add("active");
+        list_items.children[2].classList.remove("active");
+    }
+
+    if (window.location.href.includes("publish")) {
+        list_items.children[0].classList.remove("active")
+        list_items.children[1].classList.add("active");
+        list_items.children[2].classList.remove("active");
+    }
+    if (window.location.href.includes("personalpage") && (!(window.location.href.includes("personalpage/")))) {
+        list_items.children[1].classList.remove("active");
+        list_items.children[0].classList.remove("active")
+        list_items.children[2].classList.add("active");
+    }
+
+    let errorMakingUser = document.querySelector(".errorAlert");
+
+
+    if (errorMakingUser.textContent !== "") {
+        errorMakingUser.style.display = "block"
+    }
+
+
+
+</script>
+</body>
+
+</html>

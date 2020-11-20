@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="../css/login.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SignUp</title>
+</head>
+
+<body>
+    <section>
+
+        <div class="errorAlert"><%=errorMakingUser%></div>
+        <div class="image"><img src="../images/4354122.png" /></div>
+        <div class="logo"><img src="../images/logo2.png" /></div>
+
+        <form action="/signup" method="POST">
+            <input type="text" placeholder="Name" name="name" class="name" />
+            <div class="name error"></div>
+            <input type="text" placeholder="Email Address" name="email" class="email" />
+            <div class="email error"></div>
+            <input type="password" placeholder="Password" name="password" class="password" />
+            <div class="password error"></div>
+
+            <input type="submit" value="Sign Up" />
+        </form>
+
+        <div class="haveornew">
+            <p>Have an account?</p>
+            <span><a href="LogIn">Log In</a></span>
+        </div>
+    </section>
+    <script>
+        let errorMakingUser = document.querySelector(".errorAlert");
+        let form = document.querySelector("form");
+
+        if (errorMakingUser.textContent !== "") {
+            errorMakingUser.style.display = "block"
+        }
+    </script>
+</body>
+
+
+</html>

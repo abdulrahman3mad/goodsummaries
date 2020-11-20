@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../css/personalpage.css">
+    <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
+    <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
+        rel="stylesheet">
+    <script defer src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.js"></script>
+    <script defer src="https://unpkg.com/filepond-plugin-image-resize/dist/filepond-plugin-image-resize.js"></script>
+
+    <script defer src="https://unpkg.com/filepond-plugin-file-encode/dist/filepond-plugin-file-encode.js"></script>
+    <script defer src="https://unpkg.com/filepond/dist/filepond.js"></script>
+    <script defer src="javascripts/filepond.js"></script>
+    <script src="https://cdn.tiny.cloud/1/izfyyegnnafqa89ac21by8or054frlvlnt15wliptepsgr5l/tinymce/5/tinymce.min.js"
+        referrerpolicy="origin"></script>
+
+    <script>
+        tinymce.init({
+            selector: '#Summary',
+            height: 400,
+            plugins: 'lists, link, image, media',
+            toolbar: "undo redo | styleselect | bold italic | justifyleft justifycenter justifyright | bullist numlist |forecolor backcolor| preview code",
+
+            menubar: false,
+            setup: function (editor) {
+                editor.on('change', function (e) {
+                    editor.save();
+
+
+                });
+            }
+        })
+
+    </script>
+    <title><%=user.name%>/Edit</title>
+</head>
+
+<body>
+
+
+    <%- include("../portials/header")%>
+    <div class="errorAlert"><%=errorMakingUser%></div>
+    <section class="pheader">
+        <div class="container">
+
+            <form method="POST" action="/profilePage/<%=user.name%>">
+                <!--<div class="img"><input type="file" class="filepond" name="cover"></div>-->
+                <input id="name" type="text" name="name" value="<%=user.name%>">
+                <button type="submit">Publish</button>
+
+                <a class="cancel" href="/profilePage/<%user.name%>">Cancel</a>
+
+            </form>
+        </div>
+    </section>
+
+
+    <script>
+        window.onload = () => document.getElementById("name").focus();
+    </script>
+    <%-include("../portials/scripts")%>
