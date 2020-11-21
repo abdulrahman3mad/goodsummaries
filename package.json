@@ -1,10 +1,10 @@
 {
   "name": "js",
   "version": "1.0.0",
-  "main": "goodsummariesback.js",
+  "main": "goodsummaries.js",
   "scripts": {
-    "start": "node goodsummariesback.js",
-    "devStart": "nodemon goodsummariesback.js"
+    "start": "node goodsummaries.js",
+    "devStart": "nodemon goodsummaries.js"
   },
   "keywords": [],
   "author": "",

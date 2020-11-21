@@ -27,7 +27,9 @@ const mongoDB =
 mongoose
   .connect(process.env.DATABASE_URL, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(port);
+    app.listen(port, () => {
+      console.log("has connected");
+    })
   })
   .catch((res) => {
     res.render("Errorpage", { errorMessage: "Something went wrong, We'll do our best to solve this problem soon" })

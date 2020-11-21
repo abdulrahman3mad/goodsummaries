@@ -6,8 +6,8 @@ const authroutes = Router();
 
 authroutes.get("/signup", authcontroller.signUpGet);
 authroutes.post("/signup", authcontroller.signUpPost);
-authroutes.get("/login", authcontroller.loginGet);
 authroutes.post("/login", authcontroller.loginPost);
+authroutes.get("/login", authcontroller.loginGet);
 authroutes.get("/logout", authcontroller.logOut)
 
 

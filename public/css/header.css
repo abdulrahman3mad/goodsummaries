@@ -12,6 +12,7 @@ body {
 nav {
   background-color: #B4916B; }
   nav .list_items a {
+    font-weight: bold;
     color: #F8F2E9 !important; }
   nav .list_items li.active a,
   nav .list_items li:not(.signup) a:hover {
