@@ -71,7 +71,10 @@ form.mainform {
   display: flex;
   flex-wrap: wrap;
   margin-top: 30px; }
+  .books .book-link {
+    text-decoration: none; }
   .books .book {
+    box-shadow: 1px 2px 1px #cfcfcf;
     margin-top: 20px;
     background-color: white;
     border: 1px solid #53BCBC;
@@ -79,6 +82,8 @@ form.mainform {
     padding: 10px;
     margin-right: 15px;
     height: 100%; }
+    .books .book:hover {
+      transform: scale(1.01); }
     .books .book .img {
       max-width: 200px; }
       .books .book .img img {

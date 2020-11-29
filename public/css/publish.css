@@ -19,6 +19,8 @@ nav {
     color: #53BCBC !important; }
   nav i.fa-user-circle {
     font-size: 20px; }
+  nav .publish {
+    margin-right: 40px; }
 
 /*end nav style*/
 /*start landingpage style*/
@@ -73,25 +75,37 @@ li.signup {
     padding: 20px;
     font-size: 22px;
     background-color: inherit;
-    margin-bottom: 60px;
+    margin-bottom: 80px;
     line-height: 1.6; }
+  .publish select:first-of-type {
+    display: block; }
   .publish select {
+    margin-right: 5px;
     background-color: inherit;
     width: 120px;
     padding: 3px;
     color: #B4916B;
     margin-bottom: 15px; }
+  .publish span.optional {
+    opacity: 0.5; }
   .publish input[type="submit"] {
     background-color: #689696 !important;
     border: none !important;
     color: white;
-    padding: 10px;
     border-radius: 5px;
     color: #F8F2E9;
     display: block;
-    padding: 10px 30px;
-    font-size: 20px;
-    margin-top: 20px !important; }
+    padding: 5px 12px;
+    font-weight: bold; }
+
+.challenges {
+  margin-bottom: 0;
+  padding: 0; }
+  .challenges label {
+    display: inline-block; }
+  .challenges .challengeCheck {
+    margin-left: 15px;
+    display: inline-block !important; }
 
 a {
   text-decoration: none;

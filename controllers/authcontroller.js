@@ -40,9 +40,9 @@ const signUpPost = async (req, res) => {
         //create the token
         const token = jwt.sign({ _id: user._id }, "this is my great website");
         res.cookie("auth-token", token, { httpOnly: true });
-        res.redirect("home");
+        res.redirect("/Goodsummaries");
     } catch {
-        res.render("Errorpage", { errorMessage: "There is an error, please, reload and try again" });
+        res.render("errorPage", { errorMessage: "There is an error, please, reload and try again" });
     }
 }
 
@@ -50,26 +50,26 @@ const loginPost = async (req, res) => {
 
     //validation
     const { error } = loginValidation(req.body);
-    if (error) return res.render("Auth/login", { errorMakingUser: error.details[0].message })
+    if (error) return res.render("login", { errorMakingUser: error.details[0].message })
 
     //check if exists
     const user = await users.findOne({ email: req.body.email });
-    if (!user) return res.render("Auth/login", { errorMakingUser: "\"Email\" is not found" })
+    if (!user) return res.render("login", { errorMakingUser: "\"Email\" is not found" })
 
 
     //check if password right
     const checkedPassword = await bcrypt.compare(req.body.password, user.password);
-    if (!checkedPassword) return res.render("Auth/login", { errorMakingUser: "\"password\" is wrong" })
+    if (!checkedPassword) return res.render("login", { errorMakingUser: "\"password\" is wrong" })
 
     //create the token
     const token = jwt.sign({ _id: user._id }, "this is my great website");
     res.cookie("auth-token", token, { httpOnly: true });
-    res.redirect("home");
+    res.redirect("/Goodsummaries");
 }
 
 const logOut = async (req, res) => {
     res.cookie("auth-token", "..", { maxAge: 1, httpOnly: true })
-    res.redirect("login")
+    res.redirect("auth/login")
 }
 
 

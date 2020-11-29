@@ -1,40 +1,39 @@
 const books = require("../models/books");
 const users = require("../models/users");
+const challenges = require("../models/challenges")
 const acceptedfiles = ["image/jpeg", "image/png"];
 
 
-const getMainPage = (req, res) => {
+
+
+
+const getMainPage = async (req, res) => {
+
     try {
         const user = req.user;
-
-        users.findById(user._id).then(user => {
-            books.find({ Whosaveit: user._id }).then(savedBooks => {
-                books.find().then(allBooks => {
-                    return res.render("Home/home", { books: allBooks, title: "Goodsummaries-Home", savedBooks: savedBooks, user: user })
-                }).catch(() => {
-                    res.render("errorPage", { errroMessage: "can't get Home page, try to reload the page" });
-                });
-            }).catch(() => {
-                res.render("errorPage", { errroMessage: "can't get Home page, try to reload the page" });
-            })
-        }).catch(() => {
-            res.render("errorPage", { errorMessage: "can't get Home page, try to reload the page" })
-        })
+        const allBooks = await books.find()
+        const savedBooks = await books.find({ _id: user.savedBooks })
+        res.render("Home/home", { books: allBooks, title: "Goodsummaries-Home", savedBooks: savedBooks, user: user })
     }
 
     catch {
-        books.find().then(allBooks => {
-            res.render("Home/home", { books: allBooks, title: "Goodsummaries-Home" })
-        }).catch(() => {
-            res.render("errorPage", { title: "Error", errroMessage: "can't get Home page, try to reload the page" });
-        });
+        const allBooks = await books.find();
+        res.render("Home/home", { books: allBooks, title: "Goodsummaries-Home" })
     }
 }
 
+const getChallangePage = (req, res) => res.render("challange")
+
 
 const getPublishPage = async (req, res) => {
+
+    const user = req.user;
+    const challenge = await challenges.find({ userName: user.name })
+
+
+
     try {
-        res.render("Book/publish", { title: "Publish" });
+        res.render("Book/publish", { title: "Publish", challenges: challenge });
     }
     catch (err) {
         res.render("errorPage", { title: "Error", errroMessage: "can't get this page, try to reload the page" });
@@ -58,6 +57,11 @@ const getBooksBySearch = async (req, res) => {
         searchrules.Title = new RegExp(req.query.Title, "i");
     }
 
+    if (req.query.Writer != null && req.query.Writer !== "") {
+        searchrules.Summaryperson = new RegExp(req.query.Writer, "i");
+    }
+
+
 
     if (!req.user) {
         books.find(searchrules)
@@ -73,7 +77,7 @@ const getBooksBySearch = async (req, res) => {
 
     else {
         const user = req.user;
-        books.find({ Whosaveit: user.name }).then(savedBooks => {
+        books.find({ _id: user.savedBooks }).then(savedBooks => {
             books.find(searchrules)
                 .then(result => {
                     res.render("Home/home", {
@@ -96,26 +100,57 @@ const getBooksBySearch = async (req, res) => {
 const addBook = async (req, res) => {
 
     const user = req.user;
+
+    if (req.body.cover == null) {
+        res.render("errorPage", { errroMessage: "something went wrong. try to reload the page" })
+    }
+
     const book = new books({
         Title: req.body.Title,
         Summary: req.body.Summary,
-        Summarywriter: user._id,
         Category: req.body.Category,
-        Summaryperson: user.name
+        Publisher: user.name,
     })
 
-    if (req.body.cover == null) {
-        return res.render("errorPage", { errroMessage: "something went wrong. try to reload the page" })
-    }
+
 
     bookSave(book, req.body.cover);
 
+    book.save().then((book) => {
+        challenges.findOne({ userName: user.name }).then(challenge => {
 
-    book.save().then(() => {
-        res.redirect("/home");
-    }).catch((err) => {
-        res.render("errorPage", { errroMessage: "Can't publish this book, try to reload the page", Title: "Error" });
-    });
+            if (req.body.challengeCheck) {
+
+                challenge.books.push(book._id)
+                challenge.numberOfSummaries++;
+
+            }
+
+            challenge.save().then(() => {
+                users.findById(user._id).then((user) => {
+                    user.publishedBooks.push(book._id)
+                    user.save().then(() => {
+                        res.redirect("/Goodsummaries");
+
+                    }).catch(() => {
+                        res.render("errorPage", { errroMessage: "something went wrong. try to reload the page" })
+
+                    })
+
+                }).catch(() => {
+                    res.render("errorPage", { errroMessage: "something went wrong. try to reload the page" })
+
+                })
+
+            })
+
+        })
+
+
+    }).catch(() => {
+        res.render("errorPage", { errroMessage: "something went wrong. try to reload the page" })
+
+    })
 }
 
 function bookSave(book, coverEncoded) {
@@ -132,26 +167,21 @@ const getBook = async (req, res) => {
         return res.redirect("/login");
     }
     const user = req.user;
+    const id = req.params.id;
 
 
     let owner = false;
     let savedCheck = false;
-    //let liked = false;
-    const id = req.params.id;
-    const book = await books.findById(id);
 
-    if (book.Summarywriter == user._id) {
-        owner = true
-    }
-    if (book.Whosaveit.indexOf(user._id) !== -1) {
-        savedCheck = true;
-    }
+    books.findById(id).then((book) => {
+        if (user.publishedBooks.indexOf(id) !== -1) owner = true
+        if (user.savedBooks.indexOf(user._id) !== -1) savedCheck = true
 
-    try {
-        return res.render("Book/book", { book: book, user: user, owner: owner, saved: savedCheck })
-    } catch {
-        return res.render("errorPage", { errorMessage: "can't get this page, try to reload the page", Title: "Error" });
-    }
+        res.render("Book/book", { book: book, user: user, owner: owner, saved: savedCheck })
+
+    }).catch(() => {
+        res.render("errorPage", { errorMessage: "can't get this page, try to reload the page", Title: "Error" });
+    })
 
 }
 
@@ -161,15 +191,15 @@ const saveBook = async (req, res) => {
     const user = req.user;
 
     let book = await books.findById(id)
-    book.Whosaveit.push(user._id)
 
-    book.save().then(() => {
-        res.redirect(`/book/${book._id}`)
+    users.findById(user._id).then(user => {
+        user.savedBooks.push(book._id)
+        user.save().then(() => {
+            res.redirect(`/book/${book._id}`)
+        })
     }).catch(() => {
         res.render("/errorPage", { errorMessage: "Something went wrong, please try to reload the page again", Title: "Error" })
     })
-
-
 }
 
 
@@ -204,12 +234,20 @@ const updateBook = async (req, res) => {
 
 const deleteBook = async (req, res) => {
     const id = req.params.id;
+    const user = req.user;
+    const bookIndex = user.publishedBooks.indexOf(id)
+    user.publishedBooks.splice(bookIndex, 1)
 
-    book = await books.deleteOne({ _id: id }).then(() => {
-        res.redirect("/home");
+    books.deleteOne({ _id: id }).then(() => {
+        user.save().then(() => {
+            res.redirect("/Goodsummaries");
+        }).catch(() => {
+            res.redirect("errorPage", { errroMessage: "can't get profile page, try to reload the page" });
+        })
     }).catch(() => {
-        res.redirect(`/book/${book._id}`);
+        res.redirect("errorPage", { errroMessage: "can't get profile page, try to reload the page" });
     })
+
 }
 
 const getProfilePage = async (req, res) => {
@@ -217,17 +255,22 @@ const getProfilePage = async (req, res) => {
     if (!req.user) {
         res.redirect("/login");
     }
+
     let currentUser = false;
     if (req.user.name == req.params.name) currentUser = true
 
     const name = req.params.name;
-    let user = await users.findOne({ name: name });
+    try {
+        let user = await users.findOne({ name: name });
 
-    books.find({ Summarywriter: user._id }).then(books => {
-        res.render("profilePage/profilePage", { user: user, currentUser: currentUser, books: books, errorMakingUser: "" })
-    }).catch(() => {
-        res.render("errorPage", { errroMessage: "can't get profile page, try to reload the page" })
-    })
+        books.find({ _id: user.publishedBooks }).then(books => {
+            res.render("profilePage/profilePage", { user: user, currentUser: currentUser, books: books, errorMakingUser: "" })
+        }).catch(() => {
+            res.render("errorPage", { errroMessage: "can't get profile page, try to reload the page" })
+        })
+    } catch {
+        res.render("errorPage", { errorMessage: "Can't find this page" })
+    }
 }
 
 
@@ -245,7 +288,6 @@ const changeData = async (req, res) => {
 
     try {
         await users.updateOne({ name: user.name }, { name: req.body.name })
-        await books.updateOne({ Summarywriter: user._id })
         res.redirect(`/ profilePage / ${req.body.name}`);
     }
     catch {
@@ -290,6 +332,8 @@ const likeSummary = async (req, res) => {
 
 
 
+
+
 module.exports = {
     addBook,
     getBook,
@@ -303,6 +347,7 @@ module.exports = {
     changeData,
     getProfilePage,
     saveBook,
+    getChallangePage
     // likeSummary,
 }
 

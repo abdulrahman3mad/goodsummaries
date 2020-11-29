@@ -18,6 +18,8 @@ const usersSchema = new mongoose.Schema({
     },
 
     booksLiked: [String],
+    publishedBooks: [String],
+    savedBooks: [String],
 
 })
 

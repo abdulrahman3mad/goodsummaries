@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><%=book.Title%></title>
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/book.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/all.min.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/book.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/all.min.css">
 </head>
 
 <title>
@@ -24,58 +24,66 @@
 
 <body>
 
-</body>
-
-</html>
 
 
-<%-include("../portials/header")%>
-<section class="book-details">
-    <div class="container">
+    <%-include("../portials/header")%>
+    <section class="book-details">
+        <div class="container">
 
-        <div class="image-options-title">
-            <!--start book_options-->
-            <div class="book-options">
-                <%if(owner==true){%>
-                <a href="/book/<%=book._id%>/edit" class="edit">Edit</a>
-                <form method="POST" action="/book/<%=book._id%>?_method=DELETE">
-                    <button class="delete" type="submit">Delete</button>
-                </form>
-                <%}else if(owner!=true){%>
-                <%if(!saved){%>
-                <form action="/book/save/<%=book._id%>" method="POST">
-                    <button class="save" type="submit">Save</button>
-                </form>
-                <%}else{%>
-                <span class="saved">Saved</span>
+            <div class="image-options-title">
+                <!--start book_options-->
+                <div class="book-options">
+                    <%if(owner==true){%>
+                    <a href="/Goodsummaries/book/<%=book._id%>/edit" class="edit">Edit</a>
+                    <form method="POST" action="/Goodsummaries/book/<%=book._id%>?_method=DELETE">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
+                    <%}else if(owner!=true){%>
+                    <%if(!saved){%>
+                    <form action="/Goodsummaries/book/save/<%=book._id%>" method="POST">
+                        <select class="reading-option" name="reading-option" id="reading-option">
+                            <option value="read">Read</option>
+                            <option value="reading">Currently Reading</option>
+                        </select>
+                    </form>
+                    <%}else{%>
+                    <span class="saved">Saved</span>
+                    <%}%>
                 <%}%>
-                <%}%>
-                <!--end book_options-->
+                    <!--end book_options-->
+                </div>
+                <div class="img"><img src="<%=book.coverimagepath%>" />
+                </div>
+                <div class="book-mainData">
+                    <h1 class="Title"><%=book.Title%></h1>
+                    <span class="book-category"><%=book.Category%></span>
+                </div>
+
+
+
+                <!--start book summary-->
+                <div class="summary">
+                    <%-book.Summary%>
+                </div>
+                <!--end book summary-->
+
             </div>
-            <div class="img"><img src="<%=book.coverimagepath%>" />
+
+            <!--start comment part-->
+            <div class="fb-comments" style="margin-top:30px;" data-href="http://localhost:3000/book/<%=book._id%>"
+                data-numposts="5" data-width="">
             </div>
-            <div class="book-mainData">
-                <h1 class="Title"><%=book.Title%></h1>
-                <span class="book-category"><%=book.Category%></span>
-            </div>
-
-
-
-            <!--start book summary-->
-            <div class="summary">
-                <%-book.Summary%>
-            </div>
-            <!--end book summary-->
-
-
         </div>
+        <!--end comment part-->
 
-        <!--start comment part-->
-        <div class="fb-comments" style="margin-top:30px;" data-href="http://localhost:5000/<%=book._id%>"
-            data-numposts="5" data-width="">
-        </div>
-    </div>
-    <!--end comment part-->
+    </section>
+    <script>
+        let reading_option = document.querySelector(".reading-option");
+        let form = document.querySelector("form")
 
-</section>
-<%-include("../portials/scripts.ejs")%>
+        reading_option.addEventListener("change", () => {
+            form.submit();
+        })
+
+    </script>
+    <%-include("../portials/scripts.ejs")%>

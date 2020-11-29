@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="stylesheet" href="../css/header.css">
-    <link rel="stylesheet" href="../css/personalpage.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/all.min.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/personalpage.css">
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet">
@@ -49,12 +49,12 @@
     <section class="pheader">
         <div class="container">
 
-            <form method="POST" action="/profilePage/<%=user.name%>">
+            <form method="POST" action="/Goodsummaries/profilePage/<%=user.name%>">
                 <!--<div class="img"><input type="file" class="filepond" name="cover"></div>-->
                 <input id="name" type="text" name="name" value="<%=user.name%>">
                 <button type="submit">Publish</button>
 
-                <a class="cancel" href="/profilePage/<%user.name%>">Cancel</a>
+                <a class="cancel" href="/Goodsummaries/profilePage/<%user.name%>">Cancel</a>
 
             </form>
         </div>

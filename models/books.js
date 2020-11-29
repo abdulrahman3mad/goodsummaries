@@ -7,13 +7,9 @@ const bookSchema = new mongoose.Schema(
   {
     Title: {
       type: String,
-      required: [true, "The title of the book is required (:"]
-    },
-    Summary: {
-      type: String,
       required: true,
     },
-    Summarywriter: {
+    Summary: {
       type: String,
       required: true,
     },
@@ -29,16 +25,12 @@ const bookSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    Summaryperson: {
+
+    Publisher: {
       type: String,
+      required: true,
     },
 
-    Whosaveit: [String],
-
-    NumberOfLikes: {
-      type: Number,
-      default: 0,
-    },
 
   },
 

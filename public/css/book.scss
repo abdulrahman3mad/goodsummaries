@@ -47,6 +47,14 @@ body{
         }
         .book-options {margin-right: 700px;}
 
+        .reading-option{
+            float:right;
+            color:$mainColor;
+            background-color:inherit;
+            border:none;
+            width:60px
+        }
+
         button{
             background-color: $accentColor;
             float: right;

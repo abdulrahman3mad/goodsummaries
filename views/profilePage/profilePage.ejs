@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../css/personalpage.css">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/all.min.css">
-    <link rel="stylesheet" href="../css/header.css">
+    <link rel="stylesheet" href="../../css/personalpage.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/all.min.css">
+    <link rel="stylesheet" href="../../css/header.css">
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet">
@@ -50,12 +50,13 @@
                 <%if(user.coverimagepath!=null){%>
                 <div class="img"><img src="<%=user.coverimagepath%>" height=100px></div>
                 <%}else{%>
-                <div class="img"><img src="../images/profile_image.png" height=100px></div>
+                <div class="img"><img src="../../images/profile_image.png" height=100px></div>
                 <%}%>
                     <div class="personal_name">
                         <h2><%=user.name%></h2>
                 <%if(currentUser==true){%>
-                <a href="/editProfilePage" style="color:#007AB5; text-decoration: underline;">Edit profile</a>
+                <a href="Goodsummaries/editProfilePage" style="color:#007AB5; text-decoration: underline;">Edit
+                    profile</a>
                 <%}%>
 
         </div>
@@ -72,11 +73,11 @@
                 <div class="book">
                     <div class="img"> <img class="book_img" src="<%=book.coverimagepath%>" alt="Card image cap"></div>
                     <h5 class="book-title"><%=book.Title%></h5>
-                    <a href="/<%=book._id%>" class="read-button">Read</a>
+                    <a href="/Goodsummaries/book/<%=book._id%>" class="read-button">Read</a>
                 </div>
                 <% })}else{%>
                 <div class="empty-img">
-                    <img src="../images/empty.svg" height=200px alt="empty" />
+                    <img src="../images/empty-profile.png" height=200px alt="empty" />
                 </div>
                 <%}%>
                 </div>

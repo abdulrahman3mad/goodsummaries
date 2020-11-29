@@ -29,6 +29,12 @@ body {
   display: inline-block; }
 .book-details .book-options {
   margin-right: 700px; }
+.book-details .reading-option {
+  float: right;
+  color: #b4916b;
+  background-color: inherit;
+  border: none;
+  width: 60px; }
 .book-details button {
   background-color: #53BCBC;
   float: right;

@@ -39,31 +39,46 @@ textarea {
   padding: 20px;
   font-size: 22px;
   background-color: inherit;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
   line-height: 1.6;
 }
+select:first-of-type{
+  display: block;
+}
 select {
+  margin-right:5px;
   background-color: inherit;
   width: 120px;
   padding: 3px;
   color: $mainColor;
   margin-bottom: 15px;
 }
+span.optional{
+  opacity: 0.5;
+}
 input[type="submit"] {
   background-color: #689696 !important;
   border: none !important;
   color: white;
-  padding: 10px;
   border-radius: 5px;
   color: $secondaryColor2;
   display: block;
-  padding: 10px 30px;
-  font-size: 20px;
-  margin-top:20px !important
+  padding:5px 12px;
+  font-weight: bold;
 }
 }
 
-
+.challenges{
+  margin-bottom: 0;
+  padding:0;
+  label{
+    display: inline-block;
+  }
+.challengeCheck{
+  margin-left:15px;
+  display: inline-block !important;
+}
+}
 
 
 a{

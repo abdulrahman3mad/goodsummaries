@@ -7,28 +7,33 @@
             <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse text-right" id="home">
+        <div class="collapse navbar-collapse" id="home">
             <ul class="navbar-nav ml-auto list_items text-md-lg text-center">
                 <%if(user){%>
                 <li class="nav-item">
-                    <a class="nav-link" href="/home">Home</a>
+                    <a class="nav-link" href="/Goodsummaries/challenges">challenges</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="/Goodsummaries">Home</a>
+                </li>
+                <li class="nav-item publish">
+                    <a class="nav-link" href="/Goodsummaries/publish">Publish</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/publish">Publish</a>
+                    <a class="nav-link" href="/Goodsummaries/profilePage/<%=user.name%>"><i
+                            class="fas fa-user-circle"></i></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/profilePage/<%=user.name%>"><i class="fas fa-user-circle"></i></a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
+                    <a class="nav-link" href="/auth/logout"><i class="fas fa-sign-out-alt"></i></a>
                 </li>
 
                 <%}else{%>
                 <li class="nav-item login">
-                    <a class="nav-link " href="/login">Login</a>
+                    <a class="nav-link " href="/auth/login">Login</a>
                 </li>
                 <li class="nav-item signup">
-                    <a class="nav-link " href="/signup">Signup</a>
+                    <a class="nav-link " href="/auth/signup">Signup</a>
                 </li>
                 <%}%>            
                 </ul>

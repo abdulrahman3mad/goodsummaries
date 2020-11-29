@@ -19,6 +19,8 @@ nav {
     color: #53BCBC !important; }
   nav i.fa-user-circle {
     font-size: 20px; }
+  nav .publish {
+    margin-right: 40px; }
 
 /*end nav style*/
 /*start landingpage style*/
