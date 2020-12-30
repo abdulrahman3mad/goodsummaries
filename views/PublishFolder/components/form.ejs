@@ -1,0 +1,30 @@
+<form action="/Goodsummaries/book/add" method="POST">
+    <div class="cover-title">
+        <fieldset class="title form-part">
+            <label for="title">Title</label>
+            <input type="text" id="title" name="Title" required />
+        </fieldset>
+        <fieldset class="book-cover form-part">
+            <label for="book-cover">BookCover</label>
+            <input id="book-cover" type="file" name="cover" required class="filepond" />
+        </fieldset>
+    </div>
+
+    <fieldset class="summary-input Category-select form-part">
+        <label for="summary">Summary</label>
+        <textarea rows="10" cols="70" id="Summary" minlength="50" required name="Summary" class="Summary"></textarea>
+    </fieldset>
+
+    <%-include( "../../portials/category" )%>
+
+
+        <%if(challenges!==null){%>
+            <fieldset class="challenges-selector form-part">
+                <label class="challenge-adder-message">Add to the challenge</label>
+                <input class="challengeCheck" id="challenges-selector" type="checkbox" name="challengeCheck">
+            </fieldset>
+            <%}%>
+
+
+                <input type="submit"></input>
+</form>

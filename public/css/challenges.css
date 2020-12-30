@@ -1,0 +1,30 @@
+/* || start challenge style*/
+.challenge {
+  box-shadow: 4px 4px black;
+  border: 2px solid #0f0f0f;
+  background-color: #fff1da;
+  margin-top: 80px;
+  text-align: center;
+  padding: 5px 25px;
+  border-radius: 7px; }
+  .challenge h5.challenge-header {
+    font-size: 30px;
+    color: #727272; }
+  .challenge .challenge-img {
+    margin-bottom: 20px; }
+  .challenge .challenge-options {
+    float: right; }
+    .challenge .challenge-options .edit {
+      cursor: pointer; }
+  .challenge p {
+    font-size: 20px;
+    color: #858484;
+    font-weight: bold; }
+  .challenge .progress {
+    width: 100px !important; }
+    .challenge .progress .progress-bar {
+      background-color: #53BCBC; }
+
+/* || end challenge style*/
+
+/*# sourceMappingURL=challenges.css.map */

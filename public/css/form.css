@@ -1,0 +1,41 @@
+/* || start form-search style*/
+form.mainform input {
+  box-shadow: 4px 4px black;
+  border: 2px solid #0f0f0f; }
+  form.mainform input:hover {
+    border: 1px solid #53BCBC; }
+form.mainform ::placeholder {
+  opacity: 0.6;
+  font-family: Arial, Helvetica, sans-serif; }
+form.mainform .title {
+  margin-top: 4px;
+  margin-bottom: 20px; }
+form.mainform label {
+  display: block;
+  font-size: 18px;
+  color: #727272; }
+form.mainform label.title {
+  margin-bottom: 0 !important; }
+form.mainform .Category-select label {
+  margin-bottom: 9px !important; }
+form.mainform .Category-select datalist {
+  color: #858484;
+  max-width: 200px;
+  margin-top: 0;
+  box-shadow: 4px 4px black;
+  border: 2px solid #0f0f0f; }
+form.mainform button {
+  margin-top: 42px;
+  background-color: #53BCBC;
+  color: white;
+  border: none;
+  outline: none;
+  border-radius: 6px;
+  padding: 5px 15px;
+  cursor: pointer; }
+  form.mainform button:hover {
+    background-color: #349797; }
+
+/*|| end form-search style*/
+
+/*# sourceMappingURL=form.css.map */

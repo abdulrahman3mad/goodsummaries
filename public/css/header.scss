@@ -1,65 +1,71 @@
-
 /*start main style*/
-$mainColor:#B4916B;
-$secondaryColor2:#F8F2E9;
-$accentColor:#53BCBC;
-*{
-    box-sizing: border-box;
+
+$mainColor:#727272;
+$secondaryColor2: #f8f2e9;
+$accentColor: #53BCBC;
+$mainfont: Arial;
+$textColor:rgb(133, 132, 132);
+* {
+	box-sizing: border-box
 }
-body{
-    background-color:$secondaryColor2;
-    margin:0;
-    padding:0;
+a {
+	text-decoration: none
 }
+
 /*start main style*/
 
 /*start nav style*/
 
-nav{
-    background-color:$mainColor ;
-    .list_items a{
-        font-weight: bold;
-        color:$secondaryColor2 !important
-    }
-    .list_items li.active a,
-    .list_items li:not(.signup) a:hover{
-        color:$accentColor !important
-    }
-    i.fa-user-circle{
-        font-size:20px;
-    }    
-
-    .publish{
-        margin-right:40px;
-    }
+.active{
+	border-bottom: 3px solid $accentColor
 }
 
+.navbar {
+	position: fixed;
+	z-index: 5;
+	width: 100%;
+	img {
+		height: 40px;
+	}
+
+
+}
+nav {
+	background-color: $mainColor;
+	color: $secondaryColor2;
+	ul {
+		a {
+			opacity: 0.9;
+			font-weight: bold;
+			color: $secondaryColor2 !important;
+		}
+		li {
+			&:hover {
+				border-bottom: 3px solid $accentColor
+			}
+		}
+	}
+	.utilities {
+		i {
+			font-size: 20px;
+			color: $secondaryColor2
+		}
+		li {
+			margin: 0 5px
+		}
+		li.login {
+			font-size: 14px
+		}
+		li.signup {
+			font-size: 14px;
+			border-radius: 15px;
+			&:hover {
+				background-color: #3d9999 !important
+			}
+		}
+	}
+	.section-elements {
+		font-size: 17px
+	}
+}
 /*end nav style*/
-
-/*start landingpage style*/
-.landingpageimg{
-    background-color:$secondaryColor2;
-    display: flex;
-    justify-content: center;
-    width:100%;
-    height:100%;
-    position: absolute;
-    left:0;
-    top:0;
-    z-index: 8;
-}
-/*end landingpage style*/
-
-li{
-    margin:0 5px;
-}
-
-li.signup {
-    padding:0 12px !important;
-    border-radius: 15px;
-    background-color:$accentColor !important;
-    &:hover{
-        background-color:#3d9999 !important;
-    }
-}
-

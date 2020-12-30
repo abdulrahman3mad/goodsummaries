@@ -1,13 +1,15 @@
+/* || General style */
+@use 'header';
+/* || General style */
 .clear {
   clear: both; }
 
 .challenge-title {
-  margin: 30px 0;
+  padding: 80px 0 20px;
   width: 100%;
   background-color: #53BCBC;
   text-align: center;
-  color: white;
-  padding: 10px  10px; }
+  color: white; }
   .challenge-title h2 {
     font-size: 55px; }
 
@@ -39,7 +41,8 @@
   .edit-challenge .update {
     background-color: #53BCBC;
     border: none;
-    display: block; }
+    display: block;
+    cursor: pointer; }
 
 .challenge {
   width: 600px;
@@ -51,14 +54,18 @@
     float: right;
     display: flex;
     margin-bottom: 80px; }
+    .challenge .challenge-options .edit {
+      cursor: pointer; }
   .challenge p {
     font-size: 30px;
     color: #858484;
     font-weight: bold; }
-  .challenge .progress {
+  .challenge progress {
     width: 300px !important; }
-    .challenge .progress .progress-bar {
-      background-color: #53BCBC; }
+  .challenge progress::-webkit-progress-bar {
+    background-color: white !important; }
+  .challenge progress::-webkit-progress-value {
+    background-color: #53BCBC; }
   .challenge .delete {
     margin-left: 15px;
     color: #c01818;
@@ -78,7 +85,7 @@
   .challenge .challengeName {
     padding-bottom: 30px;
     font-size: 20px;
-    color: #b4916b;
+    color: #727272;
     font-weight: bold; }
   .challenge .summaries {
     display: flex;
@@ -104,10 +111,13 @@
     text-decoration: underline;
     cursor: pointer; }
   .set-challenge label {
-    color: #b4916b;
-    font-size: 25px; }
+    color: #727272;
+    font-size: 25px;
+    font-weight: bold;
+    padding: 0 20px; }
   .set-challenge input {
-    border: none;
+    box-shadow: 4px 4px black;
+    border: 2px solid #0f0f0f;
     padding: 5px 5px;
     border-radius: 10px;
     outline: none; }
@@ -116,6 +126,8 @@
     .set-challenge input:focus {
       border: 2px solid #338d8d; }
   .set-challenge button.set {
+    box-shadow: 4px 4px black;
+    border: 2px solid #0f0f0f;
     background-color: #53BCBC;
     border: none;
     cursor: pointer;

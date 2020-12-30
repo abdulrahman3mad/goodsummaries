@@ -1,0 +1,20 @@
+<div class="saved-books margin_top">
+    <header>
+        <h2 class="text-center bold" style="color:#53BCBC">last saved book</h2>
+    </header>
+    <div class="books">
+        <a href="Goodsummaries/book/<%=savedBooks._id%>">
+            <div class="book">
+                <div class="img"> <img class="book_img" src="<%=savedBooks.coverimagepath%>" alt="Card image cap">
+                </div>
+                <h5 class="book-title">
+                    <%=savedBooks.Title%>
+                </h5>
+                <p class="Summaryperson">By <a href="Goodsummaries/personalpage/<%=savedBooks.Publisher%>">
+                        <%=savedBooks.Publisher%>
+                    </a>
+                </p>
+            </div>
+        </a>
+    </div>
+</div>

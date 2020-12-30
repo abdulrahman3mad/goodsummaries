@@ -1,0 +1,42 @@
+
+$mainColor:#727272;
+$secondaryColor2: #f8f2e9;
+$accentColor: #53BCBC;
+$mainfont: Arial;
+$textColor:rgb(133, 132, 132);
+
+/* || start savedBooks style*/
+.saved-books {
+	margin-top:100px;
+	box-shadow: 4px 4px black;
+	border-radius: 7px;
+	border: 2px solid #0f0f0f;
+	padding: 10px;
+	width: 150px;
+	margin-right: 10px;
+	.books{
+		margin-left:12px
+
+	}
+	h4 {
+		border-bottom: 1px solid rgb(167, 167, 167);
+		color: $mainColor !important;
+		font-size: 25px;
+		padding: 10px;
+		font-weight: bold;
+	}
+	.book {
+		max-width: 150px;
+		height: 80%
+	}
+	.book:nth-child(even) {
+		margin-right: 0 !important
+	}
+}
+a.see {
+	color: $accentColor !important;
+	margin-top: 30px !important;
+	font-size: 12px;
+	cursor: pointer;
+}
+/* || end savedBooks style*/

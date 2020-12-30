@@ -2,20 +2,23 @@
 <html lang="en">
 
 <head>
-    <link href="../css/login.css" rel="stylesheet" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="It's the login page, used to enter the website :)">
+    <link href="../css/login.css" rel="preload" as="style" onload='this.rel="stylesheet"' />
     <title>LogIn</title>
 </head>
 
 <body>
     <section>
-        <div class="errorAlert"><%=errorMakingUser%></div>
+        <div class="errorAlert d-none">
+            <%=errorMakingUser%>
+        </div>
         <div class="image"><img src="../images/4354122.png" /></div>
-        <div class="logo"><img src="../images/logo2.png" /></div>
+        <div class="logo"><img src="../images/logo3.png" /></div>
 
-        <form action="LogIn" method="POST">
-            <input type="email" placeholder="Email Address" name="email" class="email" />
+        <form action="/Auth/LogIn" method="POST">
+            <input type="email" placeholder="Email Address" name="email" class="email" inputmode="email" />
             <div class="email error"></div>
             <input type="password" placeholder="Password" name="password" class="password" />
             <div class="password error"></div>
@@ -29,14 +32,7 @@
         </div>
     </section>
 
-    <script>
-        let errorMakingUser = document.querySelector(".errorAlert");
-        let form = document.querySelector("form");
-
-        if (errorMakingUser.textContent !== "") {
-            errorMakingUser.style.display = "block"
-        }
-    </script>
+    <script src="portials-JS.js"></script>
 </body>
 
 

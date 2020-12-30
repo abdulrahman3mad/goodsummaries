@@ -1,122 +1,149 @@
-    
-$mainColor: #b4916b;
+@use 'header';
+$mainColor:#727272;
 $secondaryColor2: #f8f2e9;
 $accentColor: #53BCBC;
 $mainfont: Arial;
-
-body{
-    background-color:$secondaryColor2 !important;
+$textColor:rgb(133, 132, 132);
+body {
+	font-size: 15px;
+	background-color: #eeeeee !important;
 }
-    
-   .book-details{
-    .img {
-        margin-top: 50px;
-        margin-bottom: 30px;
-        width: 200px;
-        height: 200px;  
-        img {
-            display: block;
-            max-width: 100%;
-            max-height: 100%;
-           }  
-          }
-     
-        h1 {
-            font-size: 40px;
-            color:$mainColor;
-            margin-bottom:0;
-        }
-        .thumbs button{
-            background-color:inherit;
-            float:left;      
-         }
+.book-details {
+	.options-inner{
+		margin-top:40px;
+		display: flex;
+		
+		justify-content: center;
+	}
+	.img {
+		margin-top: 50px;
+		margin-bottom: 30px;
+		width: 200px;
+		height: 200px;
+		img {
+			display: block;
+			max-width: 100%;
+			max-height: 100%;
+		}
+	}
+	h1.Title {
+		font-size: 50px;
+		color: $mainColor;
+		margin-bottom: 0;
+		font-weight: bold;
+	}
 
-        .thumbs i{
-            cursor: pointer;
-            color:$accentColor;
-            font-size:25px;
-            
-            &:hover{
-                transform: scale(1.2);
-            }
-        }
-        .book-category{
-            color:$accentColor;
-            margin-bottom:20px;
-            display: inline-block;
-        }
-        .book-options {margin-right: 700px;}
+	.book-category {
+		background-color: rgb(224, 224, 224);
+		color: $accentColor;
+		margin-top: 15px;
+		display: inline-block;
+	}
 
-        .reading-option{
-            float:right;
-            color:$mainColor;
-            background-color:inherit;
-            border:none;
-            width:60px
-        }
+	button:not(.like,.save){
+		background-color: $mainColor;
+		&:hover{
+			background-color: $accentColor;
+		}
+		color: white;
+		border: none;
+		padding: 2px 5px;
+		border-radius: 5px;
+		cursor: pointer;
+	}
 
-        button{
-            background-color: $accentColor;
-            float: right;
-            margin: 0 0 0 5px;
-            color: white;
-            border: none;
-            padding: 2px 5px;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-    
-        .edit {
-            color: #53BCBC;
-            float: right;
-            margin: 0 20px;
-    
-        }
-        .delete {
-            background-color: rgb(192, 24, 24);
-            float: right;
-            margin: 0 0 0 5px;
-            color: white;
-            border: none;
-            padding: 2px 5px;
-            border-radius: 5px;
-        }
-        span.saved{
-            font-weight: bold;
-            float: right;
-            margin: 0 0 0 5px;
-            color: $mainColor;
-            border: none;
-            padding: 2px 5px;
-            border-radius: 5px;
-        }
-        .summary {
-            color: rgb(83, 78, 78);
-            font-size: 17px;
-            line-height: 1.9;
-        }
-        label {
-            display: block;
-            margin-top: 30px;
-        }
-
-        
-        
-   textarea {
-    background-color: inherit;
-    padding: 5px 30px 15px 5px;
-    font-size: 15px;
-    color: rgb(65, 60, 60);
+	.active{
+		color:$accentColor !important;
+		width:30px;
+		height:30px;
+		line-height: 1.5;
+		border:1px solid $accentColor;
+		border-radius: 50%;
+		text-align: center;
+		
+	}
+	form.save{
+		button{
+		border:none;
+		background-color:inherit;
+		i{
+			cursor: pointer;
+			&:hover{
+				color:$accentColor !important
+			}
+		}
+		}
+	
+	}
+	form.likes{
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	
+	.like{
+		margin: 0 40px;
+		border:none;
+		outline: none;
+		i{
+			color:$mainColor;
+			cursor: pointer;
+			&:hover{
+				color:$accentColor !important
+			}
+		}
+	}
 }
-::placeholder {
-    font-size: 15px;
+	.edit {
+		color: #53BCBC;
+		float: left;
+		margin-top: 50px;
+		margin-right: 20px;
+	}
+	.delete {
+		margin-top: 50px;
+		background-color:rgb(233, 53, 53);
+		float: left;
+		color: white;
+		border: none;
+		padding: 2px 5px;
+		border-radius: 5px;
+	}
+	span.saved {
+		font-weight: bold;
+		float: right;
+		margin: 0 0 0 5px;
+		color: $mainColor;
+		border: none;
+		padding: 2px 5px;
+		border-radius: 5px;
+	}
+	.owner {
+		margin-top: 10px;
+		margin-bottom: 40px;
+		
+	}
+	.owner span {
+		font-weight: bold;
+		color: #379c9c
+	}
+	.summary {
+		color: rgb(83, 78, 78);
+		line-height: 2.2;
+		font-size:15px;
+	}
+	label {
+		display: block;
+		margin-top: 30px;
+	}
+	textarea {
+		background-color: inherit;
+		padding: 5px 30px 15px 5px;
+		color: rgb(65, 60, 60);
+	}
+	::placeholder {
+		font-size: 15px;
+	}
+	.image-options-title i {
+		font-size: 20px;
+	}
 }
-
-.image-options-title i {
-    font-size: 20px;
-}
-
-}
-
-
-  

@@ -1,205 +1,68 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/all.min.css">
-    <link rel="stylesheet" href="css/header.css">
-    <link rel="stylesheet" href="css/mainpage.css">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Hello in goodsummaries website, it's a community 
+    where can each one reads, or put a summary of whatever book he read before.
+    read and make us read!
+    ">
     <title>Goodsummaries-Home</title>
+
+    <link rel="preload" href="css/bootstrap.min.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/mainpage.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/header.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/slide.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/form.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/books.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/all.min.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/savedbooks.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="css/challenges.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="stylesheet" href="css/portials/footer.css">
+    <link rel="prefetch" href="../profilePage/profilePage.ejs">
 </head>
 
+
 <body>
-    <%-include("../portials/header")%>
-    <%if(user){%>
-    <div class="welcomeAlert">Welcome <%=user.name%> to goodsummaries website!</div>
-    <%}%>
-    <!--start nav&cover-->
-    <section class="webinfo">
-        <div class="infoimage">
-            <div class="overflow"></div>
-            <div class="coverText">
-                <h1 class="d-none d-lg-block">Read and make us read</h1>
-                <p class="d-none d-lg-block">Share your summaries, or read others</p>
-                <%if(!user){%>
-    <a href="auth/login" class="publish-icon d-none d-lg-block"><span class="publish">Publish </span></a>
-    <%}%>
-            </div>
-        </div>
-    </section>
-    <!--end nav&cover-->
-    <div class="saveedandall-books">
-        <div class="container">
-            <div class="row">
-                <!--start search form -->
-                <div class="books-display col-lg-10 col-12">
-                    <form action="/search" method="GET" class="mainform">
+    <%-include( "../portials/header" )%>
+
+
+        <%if(!user){%>
+            <%-include( "components/slide.ejs" )%>
+                <%}%>
+
+                    <div class="content">
                         <div class=container>
                             <div class="row">
-                                <div class="title col-xl-auto col-6 ">
-                                    <label for="Title">Title</label>
-                                    <input type="text" name="Title" class="form-control Title"
-                                        id="Title" placeholder="Harry Potor">
-                                </div>
-                                <div class="title col-xl-auto col-6 ">
-                                    <label for="Writer title">Writer</label>
-                                    <input type="text" name="Writer" class="form-control Writer"
-                                        id="Writer" placeholder="asiel abdulrahman">
-                                </div>
-                                <div class="Category-select col-xl-auto col-6">
-                                    <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Category</label>
-                                    <select class="custom-select my-1 mr-sm-2 Category" id="inlineFormCustomSelectPref"
-                                        name="Category">
-                                        <option value="All"> All</option>
-                                        <option value="Fantsy">Fantsy</option>
-                                        <option value="Drama">Drama</option>
-                                        <option value="Logic">Logic</option>
-                                        <option value="Romance">Romance</option>
-                                        <option value="Mystery">Mystery</option>
-                                        <option value="Religious books">Religious books</option>
-                                        <option value="Inspirational">Inspirational</option>
-                                        <option value="Science">Science</option>
-                                        <option value="Self-help">Self-help</option>
-                                        <option value="Literary">Literary</option>
-                                        <option value="psychology">psychology</option>
-                                        <option value="history">history</option>
-                                    </select>
-                                </div>
+                                <div class="element"></div>
+
+                                <section class="books-section col-12 col-lg-10 margin_top">
+                                    <%-include( "components/form.ejs" )%>
+                                        <%-include( "components/books.ejs" )%>
+                                </section>
+                                <aside class="d-none d-lg-block aside col-lg-2 col-12 ">
+                                    <%if(user){%>
+                                        <%if(savedBooks!==null&&savedBooks!==undefined){%>
+                                            <%-include( "components/saved_books.ejs" )%>
+                                                <%-include( "components/challenge.ejs" )%>
+                                </aside>
+                                <%}}%>
                             </div>
                         </div>
-                    </form>
-                    <!--end search form -->
-                    <!--start books display-->
-                    <div class="books-section">
-                        <div class="books">
-                            <%if(books[0]){%>
-    <%books.forEach((book)=>{%>
-    <a href="Goodsummaries/book/<%=book._id%>" class="book-link">
-        <div class="book">
-            <div class="img"> <img class="book_img" src="<%=book.coverimagepath%>" alt="Card image cap">
-            </div>
-            <h5 class="book-title"><%=book.Title%></h5>
-            <%if(user){%>
-
-            <p class="Summaryperson">By
-                <a href="Goodsummaries/profilePage/<%=book.Publisher%>"><%=book.Publisher%></a>
-            </p>
-            <a href="Goodsummaries/book/<%=book._id%>" class="read-button">Read</a>
-            <%}%>
-            <%if(!user){%>
-            <p class="Summaryperson">By
-                <a href="auth/login"><%=book.Publisher%></a>
-            </p>
-            <a href="auth/login" class="read-button">Read</a>
-            <a href="auth/login" class="read-button">Read</a>
-            <%}%>
-
-        </div>
-    </a>
-    <% })}else{%>
-            <div class="empty-img">
-                <img src="../images/empty-home.png" height=450px alt="empty" />
-            </div>
-            <%}%>
-                        </div>
                     </div>
-                </div>
-                <%if(user){%>
-            <%if(savedBooks[0]){%>
+                    <%-include( "../portials/footer" )%>
 
+                        <!--end books display-->
+                        <script>
 
-            <div class="saved-books float-right col-md-2 col-12">
-                <h2>Current Reading</h2>
-                <div class="books">
-                    <div class="limitedbooks">
-                        <div class="book">
-                            <div class="img"> <img class="book_img" src="<%=savedBooks[0].coverimagepath%>"
-                                    alt="Card image cap">
-                            </div>
-                            <h5 class="book-title">
-                                <%=savedBooks[0].Title%></h5>
-                            <p class="Summaryperson">By <a
-                                    href="Goodsummaries/personalpage/<%=savedBooks[0].Publisher%>"><%=savedBooks[0].Publisher%></a>
-                            </p>
-                            <a href="Goodsummaries/book/<%=savedBooks[0]._id%>" class="read-button">Read</a>
+                            let aside = document.querySelector(".aside");
+                            let books_section = document.querySelector(".books-section")
+                            if (!aside) {
+                                books_section.classList.remove("col-lg-10")
+                                books_section.classList.add("col-lg-12")
+                                aside.classList.remove("col-lg-2")
+                            }
 
-                        </div>
-
-                    </div>
-
-
-
-                    <div class="notLimitedBooks d-none">
-                        <%let allBook=(savedBooks.length)-1;
-                                        while(allBook>=0){%> <div class="book">
-                            <div class="img"> <img class="book_img" src="<%=savedBooks[allBook].coverimagepath%>"
-                                    alt="Card image cap">
-                            </div>
-                            <h5 class="book-title"><%=savedBooks[allBook].Title%></h5>
-                            <p class="Summaryperson">By <a
-                                    href="Goodsummaries/personalpage/<%=savedBooks[allBook].Publisher%>"><%=savedBooks[allBook].Publisher%></a>
-                            </p>
-                            <a href="Goodsummaries/book/<%=savedBooks[allBook]._id%>" class="read-button">Read</a>
-                        </div>
-                        <%allBook--;}%>
-                    </div>
-                </div>
-                <a class="see see-more">See More</a>
-                <a class="see see-less d-none">See Less</a>
-
-            </div>
-        </div>
-        </div>
-        <%}}%>
-
-        <!--end books display-->
-        <script>
-
-            window.onload = () => {
-                setTimeout(() => {
-                    document.querySelector(".welcomeAlert").style.display = "none";
-                }, 5000)
-            }
-
-
-            let Title = document.querySelector(".Title");
-            let Category = document.querySelector(".Category")
-            let Writer = document.querySelector(".Writer")
-            let form2 = document.querySelector("form");
-
-            Title.addEventListener("change", () => {
-                form2.submit();
-            })
-
-            Category.addEventListener("change", () => {
-                form2.submit();
-            })
-
-            Writer.addEventListener("change", () => {
-                form2.submit();
-            })
-
-            let limitedBooks = document.querySelector(".limitedbooks");
-            let notLimitedBooks = document.querySelector(".notLimitedBooks");
-            let seeMoreOption = document.querySelectorAll(".see");
-
-            seeMoreOption[0].addEventListener("click", () => {
-                notLimitedBooks.classList.remove("d-none");
-                limitedBooks.classList.add("d-none");
-                seeMoreOption[0].classList.add("d-none");
-                seeMoreOption[1].classList.remove("d-none")
-            })
-            seeMoreOption[1].addEventListener("click", () => {
-                notLimitedBooks.classList.add("d-none");
-                limitedBooks.classList.remove("d-none");
-                seeMoreOption[1].classList.add("d-none");
-                seeMoreOption[0].classList.remove("d-none")
-            })
-
-
-
-        </script>
-        <%-include("../portials/scripts.ejs")%>
+                        </script>
+                        <%-include( "../portials/scripts" )%>

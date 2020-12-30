@@ -1,0 +1,21 @@
+<div class="personal_data_father">
+    <div class="profile_data">
+
+        <%if(user.coverimagepath!=null){%>
+            <div class="img"><img src="<%=user.coverimagepath%>" height=100px></div>
+            <%}else{%>
+                <div class="img"><img src="../../images/profile_image.png" height=100px></div>
+                <%}%>
+                    <div class="personal_name">
+                        <h2>
+                            <%=user.name%>
+                        </h2>
+                        <%if(currentUser==true){%>
+                            <a href="/Goodsummaries/profilePage/<%=user.name%>/editProfilePage"
+                                style="color:#007AB5; text-decoration: underline;">Edit
+                                profile</a>
+                            <%}%>
+
+                    </div>
+    </div>
+</div>

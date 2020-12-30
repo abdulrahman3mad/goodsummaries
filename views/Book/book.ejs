@@ -2,13 +2,17 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=book.Title%></title>
-    <link rel="stylesheet" href="../../css/header.css">
-    <link rel="stylesheet" href="../../css/book.css">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/all.min.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="It's the login page, used to enter the website :)">
+
+    <title>
+        <%=book.Title%>
+    </title>
+    <link rel="preload" href="../../css/header.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="../../css/book.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="../../css/bootstrap.min.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="../../css/all.min.css" as="style" onload='this.rel="stylesheet"'>
 </head>
 
 <title>
@@ -26,64 +30,94 @@
 
 
 
-    <%-include("../portials/header")%>
-    <section class="book-details">
-        <div class="container">
+    <%-include( "../portials/header" )%>
+        <section class="book-details">
+            <div class="container">
 
-            <div class="image-options-title">
-                <!--start book_options-->
-                <div class="book-options">
-                    <%if(owner==true){%>
-                    <a href="/Goodsummaries/book/<%=book._id%>/edit" class="edit">Edit</a>
-                    <form method="POST" action="/Goodsummaries/book/<%=book._id%>?_method=DELETE">
-                        <button class="delete" type="submit">Delete</button>
-                    </form>
-                    <%}else if(owner!=true){%>
-                    <%if(!saved){%>
-                    <form action="/Goodsummaries/book/save/<%=book._id%>" method="POST">
-                        <select class="reading-option" name="reading-option" id="reading-option">
-                            <option value="read">Read</option>
-                            <option value="reading">Currently Reading</option>
-                        </select>
-                    </form>
-                    <%}else{%>
-                    <span class="saved">Saved</span>
-                    <%}%>
-                <%}%>
+                <div class="image-options-title">
+                    <!--start book_options-->
+                    <div class="options">
+                        <div class="row">
+                            <div class="img col-4"><img src="<%=book.coverimagepath%>" /></div>
+
+                            <div class="options-inner col-8">
+                                <%if(owner==true){%>
+                                    <a href="/Goodsummaries/book/<%=book._id%>/edit" class="edit">Edit</a>
+                                    <form method="POST" action="/Goodsummaries/book/<%=book._id%>?_method=DELETE">
+                                        <button class="delete" type="submit">Delete</button>
+                                    </form>
+                                    <%}else if(owner!=true){%>
+                                        <%if(!saved){%>
+                                            <form action="/Goodsummaries/book/save/<%=book._id%>" class="save"
+                                                method="POST">
+                                                <button class="current-reading" type="submit"><i
+                                                        class="far fa-bookmark"></i></button>
+                                            </form>
+                                            <%}else{%>
+                                                <form action="/Goodsummaries/book/unsave/<%=book._id%>" class="save"
+                                                    method="POST">
+                                                    <button class="current-reading" type="submit"><i
+                                                            class="far fa-bookmark active"></i></button>
+                                                </form>
+                                                <%}%>
+                                                    <%if(liked==true){%>
+                                                        <form action="/Goodsummaries/book/unlike/<%=book._id%>"
+                                                            class="likes" method="POST">
+                                                            <button class="like" type="submit"><i
+                                                                    class="fas fa-heart active"></i></button>
+                                                            <p class="likes"><span>
+                                                                    <%=book.WhoLoveIt.length%>
+                                                                </span></p>
+                                                        </form>
+                                                        <%}else{%>
+                                                            <form action="/Goodsummaries/book/like/<%=book._id%>"
+                                                                class="likes" method="POST">
+                                                                <button class="like" type="submit"><i
+                                                                        class="fas fa-heart "></i></button>
+                                                                <p class="likes"><span>
+                                                                        <%=book.WhoLoveIt.length%>
+                                                                    </span> </p>
+                                                            </form>
+                                                            <%}%>
+                            </div>
+                        </div>
+                        <%}%>
+                    </div>
                     <!--end book_options-->
+
                 </div>
-                <div class="img"><img src="<%=book.coverimagepath%>" />
-                </div>
+
                 <div class="book-mainData">
-                    <h1 class="Title"><%=book.Title%></h1>
-                    <span class="book-category"><%=book.Category%></span>
+                    <h1 class="Title">
+                        <%=book.Title%>
+                    </h1>
+                    <span class="book-category">
+                        <%=book.Category%>
+                    </span>
                 </div>
 
 
-
+                <div class="owner">
+                    by<span>
+                        <%=book.Publisher%>
+                    </span>
+                </div>
                 <!--start book summary-->
                 <div class="summary">
                     <%-book.Summary%>
                 </div>
                 <!--end book summary-->
 
+
+
+                <!--start comment part-->
+                <div class="fb-comments" style="margin-top:30px;" data-href="http://localhost:3000/book/<%=book._id%>"
+                    data-numposts="5" data-width="">
+                </div>
+            </div>
+            <!--end comment part-->
             </div>
 
-            <!--start comment part-->
-            <div class="fb-comments" style="margin-top:30px;" data-href="http://localhost:3000/book/<%=book._id%>"
-                data-numposts="5" data-width="">
-            </div>
-        </div>
-        <!--end comment part-->
+        </section>
 
-    </section>
-    <script>
-        let reading_option = document.querySelector(".reading-option");
-        let form = document.querySelector("form")
-
-        reading_option.addEventListener("change", () => {
-            form.submit();
-        })
-
-    </script>
-    <%-include("../portials/scripts.ejs")%>
+        <%-include( "../portials/scripts.ejs" )%>

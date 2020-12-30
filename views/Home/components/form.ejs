@@ -1,0 +1,35 @@
+<form action="/Goodsummaries" method="GET" class="mainform">
+    <div class="row">
+        <fieldset class="title col-3">
+            <label for="Title">Title</label>
+            <input type="text" name="Title" class="form-control Title" id="Title" placeholder="Harry Potor">
+        </fieldset>
+        <fieldset class="writer col-3">
+            <label for="Writer">Summary Writer</label>
+            <input type="text" name="Writer" class="form-control Writer" id="Writer" placeholder="asiel abdulrahman">
+        </fieldset>
+        <fieldset class="Category-select col-3">
+            <label class="my-1 mr-2" for="inlineFormCustomSelectPref">Category</label>
+            <input list="Category" name="Category" class="form-control" />
+            <datalist id="Category" class="Category">
+                <option value="All"> All</option>
+                <option value="Fantsy">Fantsy</option>
+                <option value="Drama">Drama</option>
+                <option value="Logic">Logic</option>
+                <option value="Romance">Romance</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Religious books">Religious books</option>
+                <option value="Inspirational">Inspirational</option>
+                <option value="Science">Science</option>
+                <option value="Self-help">Self-help</option>
+                <option value="Literary">Literary</option>
+                <option value="psychology">psychology</option>
+                <option value="history">history</option>
+            </datalist>
+        </fieldset>
+
+        <div class="form-submit-button col-3">
+            <button type="submit">Search</button>
+        </div>
+    </div>
+</form>

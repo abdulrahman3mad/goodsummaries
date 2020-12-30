@@ -1,0 +1,41 @@
+<section class="books">
+    <div class="container">
+        <%if(books.length!=0){%>
+            <div class="row">
+                <%books.forEach((book)=>{%>
+                    <div class="book col-lg-3 col-4">
+                        <a href="Goodsummaries/book/<%=book._id%>" class="book-link">
+                            <div class="img"> <img class="book_img" src="<%=book.coverimagepath%>" alt="Card image cap">
+                            </div>
+                            <h5 class="book-title">
+                                <%=book.Title%>
+                            </h5>
+
+                            <p class="Summaryperson">By
+                                <a href="Goodsummaries/profilepage/<%=book.publisher%>">
+                                    <%=book.Publisher%>
+                                </a>
+                            </p>
+                            <%if(user){%>
+                                <%if(user.savedBooks.indexOf(book._id)==-1){%>
+                                    <form action="Goodsummaries/book/save/<%=book._id%>" method="POST">
+                                        <button class="save" type="submit">Save</button>
+                                    </form>
+                                    <%}else{%>
+                                        <form action="Goodsummaries/book/unsave/<%=book._id%>" method="POST">
+                                            <button class="saved" type="submit">Saved</button>
+                                        </form>
+                                        <%}}%>
+                        </a>
+                    </div>
+
+                    <%})%>
+            </div>
+
+            <%}else{%>
+                <div class="empty-img">
+                    <img src="../images/empty-home.png" height=350px alt="empty" />
+                </div>
+                <%}%>
+    </div>
+</section>

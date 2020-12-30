@@ -1,88 +1,110 @@
-@import "header";
+/*start general style*/
 
+$mainColor:#727272;
+$secondaryColor2: #f8f2e9;
+$accentColor: #53BCBC;
+$mainfont: Arial;
+$textColor:rgb(133, 132, 132);
+body {
+	font-family: $mainfont;
+	padding: 0;
+	margin: 0;
+	color: $mainColor !important;
+	background-color: #eeeeee !important;
+}
+a {
+	text-decoration: none;
+	color: $secondaryColor2
+}
+/*end general style*/
 
-/*start bookinfo style*/
-
-.publish {
-  margin-top: 30px;
-  .ui{
-    margin-bottom: 50px; 
-  }
-  .title {
-    display: block;
-  }
-  label {
-    margin-top:20px;
-    display: block;
-    color: $accentColor;
-    margin-bottom: 5px;
-  }
-  .filepond--root {
-    max-height: 10em;
-    max-width: 8em;
-  }
-  .filepond--item-panel {
-    background-color: black;
-  }
-  input:not([type="file"]) {
-    border-radius: 4px;
-    outline: none;
-    background: none;
-    border: 0.8px solid black;
-    display: block;
-    margin-bottom: 70px;
-    padding: 7px;
-  }
-  
-
-textarea {
-  padding: 20px;
-  font-size: 22px;
-  background-color: inherit;
-  margin-bottom: 80px;
-  line-height: 1.6;
-}
-select:first-of-type{
-  display: block;
-}
-select {
-  margin-right:5px;
-  background-color: inherit;
-  width: 120px;
-  padding: 3px;
-  color: $mainColor;
-  margin-bottom: 15px;
-}
-span.optional{
-  opacity: 0.5;
-}
-input[type="submit"] {
-  background-color: #689696 !important;
-  border: none !important;
-  color: white;
-  border-radius: 5px;
-  color: $secondaryColor2;
-  display: block;
-  padding:5px 12px;
-  font-weight: bold;
-}
-}
-
-.challenges{
-  margin-bottom: 0;
-  padding:0;
-  label{
-    display: inline-block;
-  }
-.challengeCheck{
-  margin-left:15px;
-  display: inline-block !important;
-}
-}
-
-
-a{
-  text-decoration: none;
-  color: $secondaryColor2;
-
+section.publish {
+	form {
+		padding: 100px 0;
+		.form-part {
+			margin-bottom: 50px
+		}
+	
+	label {
+		display: block;
+		color: $mainColor;
+		font-weight: bold;
+		font-size: 19px;
+		margin-bottom: 15px;
+	}
+	.filepond--root {
+		label {
+			color: #278b8b;
+		}
+		max-height: 10em;
+		background-color:#727272;
+		max-width: 8em;
+	}
+	.filepond--item-panel {
+		background-color: black;
+	}
+	input {
+		box-shadow: 4px 4px black;
+		border: 2px solid #0f0f0f;
+		border-radius: 4px;
+		outline: none;
+		background: none;
+		padding: 7px;
+	}
+	textarea {
+		box-shadow: 4px 4px black;
+		border: 2px solid #0f0f0f;
+		padding: 20px;
+		font-size: 22px;
+		background-color: inherit;
+		line-height: 1.4;
+		color: $mainColor
+	}
+	select:first-of-type {
+		margin-bottom: 40px;
+		display: block;
+		box-shadow: 4px 4px black;
+	}
+	select {
+		margin-right: 5px;
+		background-color: inherit;
+		width: 120px;
+		padding: 3px;
+		color: $mainColor;
+		margin-bottom: 15px;
+	}
+	span.optional {
+		opacity: 0.5;
+	}
+	.Category-select{
+		margin-bottom:60px;
+		label{
+			margin-bottom:9px !important;
+		}
+		input{
+			width:200px !important;
+		}
+	}
+	.challenges-selector {
+		margin-left: 15px;
+		p.challenge-adder-message {
+			display: inline;
+			font-size: 20px;
+			font-weight: bold;
+		}
+		.challengeCheck {
+			display: inline;
+		}
+	}
+	input[type="submit"] {
+		background-color: #689696 !important;
+		border: none !important;
+		border-radius: 5px;
+		color: $secondaryColor2;
+		display: block;
+		padding: 8px 15px;
+		font-weight: bold;
+		cursor: pointer;
+	   }
+	}
 }

@@ -1,0 +1,41 @@
+
+:root{
+--mainColor:#727272;
+--accentColor:#53BCBC;
+--secondaryColor:#f8f2e9;
+--textColor:rgb(117, 116, 116);
+}
+
+footer{
+	color:var(--textColor);
+	border-top:0.3px solid rgb(187, 187, 187);
+	font-size:0.5em !important;
+	margin-top:100px;	
+	text-align: center;
+	padding-top:25px
+}
+footer h2{
+	font-size:17px !important;
+}
+ footer p{
+	 margin-top:10px;
+	 font-size:12px !important
+}
+
+footer ul{
+	display:flex;
+	list-style: none;
+	justify-content: center;
+}
+footer ul li{
+	font-size:2em;
+	margin-right:20px;
+	cursor: pointer;
+}
+footer ul li:hover{
+	color:var(--accentColor)
+}
+
+footer ul  a{
+	color:var(--textColor) 
+}

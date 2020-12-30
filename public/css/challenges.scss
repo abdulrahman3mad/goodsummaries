@@ -1,0 +1,41 @@
+$mainColor:#727272;
+$secondaryColor2: #f8f2e9;
+$accentColor: #53BCBC;
+$mainfont: Arial;
+$textColor:rgb(133, 132, 132);
+/* || start challenge style*/
+
+.challenge {
+	box-shadow: 4px 4px black;
+	border: 2px solid #0f0f0f;
+	background-color: rgb(255, 241, 218);
+	margin-top: 80px;
+	text-align: center;
+	padding: 5px 25px;
+	border-radius: 7px;
+	h5.challenge-header {
+		font-size: 30px;
+		color: $mainColor
+	}
+	.challenge-img {
+		margin-bottom: 20px;
+	}
+	.challenge-options {
+		.edit {
+			cursor: pointer;
+		}
+		float:right;
+	}
+	p {
+		font-size: 20px;
+		color: $textColor;
+		font-weight: bold;
+	}
+	.progress {
+		width: 100px !important;
+		.progress-bar {
+			background-color: $accentColor
+		}
+	}
+}
+/* || end challenge style*/

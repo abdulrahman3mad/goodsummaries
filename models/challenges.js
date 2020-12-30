@@ -1,4 +1,4 @@
-const { number } = require("@hapi/joi")
+const { number, boolean } = require("@hapi/joi")
 const mongoose = require("mongoose")
 
 const challengesSchema = new mongoose.Schema({
@@ -23,6 +23,11 @@ const challengesSchema = new mongoose.Schema({
     userName: {
         type: String,
         required: true,
+    },
+
+    finished: {
+        type: Boolean,
+        default: false,
     },
 
     books: [String]

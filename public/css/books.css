@@ -1,0 +1,52 @@
+/* || start books style*/
+.books .book-link {
+  text-decoration: none; }
+.books .book {
+  margin-right: 20px;
+  height: fit-content;
+  border-radius: 7px;
+  border: 1px solid #53BCBC;
+  margin-top: 20px;
+  background-color: white;
+  max-width: 150px;
+  padding: 10px; }
+  .books .book:hover {
+    transform: scale(1.01);
+    box-shadow: 1px 2px 3px #cfcfcf, -1px -1px 3px #cfcfcf; }
+  .books .book .img {
+    max-width: 200px; }
+    .books .book .img img {
+      max-width: 100%; }
+  .books .book h5.book-title {
+    margin-top: 15px;
+    margin-bottom: 2px;
+    color: #727272;
+    font-weight: bold;
+    font-size: 25px;
+    max-width: 200px;
+    word-wrap: break-word; }
+  .books .book p.Summaryperson {
+    font-size: 10px;
+    color: #727272; }
+    .books .book p.Summaryperson a {
+      color: #53BCBC; }
+  .books .book .book-buttons {
+    display: flex; }
+  .books .book button.save, .books .book button.saved {
+    margin-top: 5px;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-weight: bold;
+    font-size: 10px;
+    border-radius: 8px;
+    background-color: #acacac;
+    cursor: pointer; }
+    .books .book button.save:hover, .books .book button.saved:hover {
+      background-color: #807e7e; }
+  .books .book span.saved {
+    background-color: #cdcdcd; }
+
+/* || end books style*/
+
+/*# sourceMappingURL=books.css.map */

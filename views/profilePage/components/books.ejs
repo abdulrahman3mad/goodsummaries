@@ -1,0 +1,19 @@
+<%if(books){%>
+    <div class="books">
+        <div class="row">
+            <%books.forEach((book)=>{%>
+                <a href="/Goodsummaries/book/<%=book._id%>" class="book-link">
+                    <div class="book col-4">
+                        <div class="img"> <img class="book_img" src="<%=book.coverimagepath%>" alt="Card image cap">
+                        </div>
+                        <h5 class="book-title">
+                            <%=book.Title%>
+                        </h5>
+                    </div>
+                </a>
+                <%})%>
+                    <div class="img"><img src="../images/empty-profile" alt=""></div>
+        </div>
+    </div>
+    <%}else{%>
+        <%}%>

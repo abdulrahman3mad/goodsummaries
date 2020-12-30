@@ -31,7 +31,9 @@ const bookSchema = new mongoose.Schema(
       required: true,
     },
 
-
+    WhoLoveIt: {
+      type: [String],
+    }
   },
 
   { timestamps: true }

@@ -1,0 +1,42 @@
+<div class="display-challenge previousChallenges">
+	<%let endDates=[ previousChallenges.endDate.getDate(), previousChallenges.endDate.getMonth()+1,
+		previousChallenges.endDate.getFullYear() ] %>
+
+		<%let startDates=[ previousChallenges.startDate.getDate(), previousChallenges.startDate.getMonth()+1,
+			previousChallenges.startDate.getFullYear() ] %>
+			<div class="challenge-header">
+				<p class="date">
+					<%=startDates[0]%>/<%=startDates[1]%>/<%=startDates[2]%> :
+								<%=endDates[0]%>/<%=endDates[1]%>/<%=endDates[2]%>
+				</p>
+				<div class="challenge-options">
+					<span class="edit">Edit</span>
+					<form method="POST" action="/Goodsummaries/challenges/delete/<%=challenge._id%>?_method=DELETE">
+						<button class="delete" type="submit">Delete</button>
+					</form>
+				</div>
+			</div>
+
+			<p class="">You have put <%=previousChallenges.numberOfSummaries%> of <%=previousChallenges.numberOfBooks%>
+						Summaries </p>
+			<div>
+				<%let myNumberOfBook=challenge.numberOfBooks%>
+					<% let myNumberOfSummaries=challenge.numberOfSummaries %>
+						<% const totalValue=(myNumberOfSummaries/myNumberOfBook)*100 %>
+
+							<progress value="<%=totalValue%>" max="100">
+							</progress>
+
+							<div class="summaries">
+								<%previousBooks.forEach(book=>{%>
+									<a href="/Goodsummaries/book/<%=book._id%>" class="book-link">
+										<div class="summary">
+											<div class="img"> <img class="book_img" src="<%=book.coverimagepath%>"
+													alt="Card image cap">
+											</div>
+										</div>
+									</a>
+									<%})%>
+							</div>
+			</div>
+</div>

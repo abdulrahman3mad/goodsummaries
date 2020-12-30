@@ -1,0 +1,22 @@
+<div class="notLimitedBooks">
+    <div class="books">
+        <div class="row">
+            <%let allBook = (savedBooks.length)-1;
+                        while(allBook>=0){%>
+            <a href="Goodsummaries/book/<%=savedBooks[allBook]._id%>">
+                <div class="book col-3">
+                    <div class="img"> <img class="book_img" src="<%=savedBooks[allBook].coverimagepath%>"
+                            alt="Card image cap">
+                    </div>
+                    <h5 class="book-title">
+                        <%=savedBooks[allBook].Title%></h5>
+                    <p class="Summaryperson">By <a
+                            href="Goodsummaries/personalpage/<%=savedBooks[allBook].Publisher%>"><%=savedBooks[allBook].Publisher%></a>
+                    </p>
+
+                </div>
+            </a>
+            <%allBook--;}%>
+        </div>
+    </div>
+</div>

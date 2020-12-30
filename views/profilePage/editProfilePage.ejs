@@ -2,12 +2,14 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../../css/all.min.css">
-    <link rel="stylesheet" href="../../css/header.css">
-    <link rel="stylesheet" href="../../css/personalpage.css">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="It's the login page, used to enter the website :)">
+
+
+    <link rel="preload" href="../../../css/bootstrap.min.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="../../../css/header.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="preload" href="../../../css/personalpage.css" as="style" onload='this.rel="stylesheet"'>
     <link href="https://unpkg.com/filepond/dist/filepond.css" rel="stylesheet">
     <link href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.css"
         rel="stylesheet">
@@ -35,33 +37,31 @@
 
                 });
             }
-        })
+        });
 
     </script>
-    <title><%=user.name%>/Edit</title>
+    <title>
+        <%=user.name%>/Edit
+    </title>
 </head>
 
 <body>
 
 
-    <%- include("../portials/header")%>
-    <div class="errorAlert"><%=errorMakingUser%></div>
-    <section class="pheader">
-        <div class="container">
+    <%-include( "../portials/header" )%>
+        <section class="edit-content">
+            <div class="container">
+                <form method=" POST" action="/Goodsummaries/profilePage/<%=user.name%>">
+                    <input id="name" type="text" name="name" value="<%=user.name%>" />
+                    <button type="submit">Publish</button>
+                </form>
+                <a class="cancel" href="/Goodsummaries/profilePage/<%=user.name%>">Cancel</a>
 
-            <form method="POST" action="/Goodsummaries/profilePage/<%=user.name%>">
-                <!--<div class="img"><input type="file" class="filepond" name="cover"></div>-->
-                <input id="name" type="text" name="name" value="<%=user.name%>">
-                <button type="submit">Publish</button>
-
-                <a class="cancel" href="/Goodsummaries/profilePage/<%user.name%>">Cancel</a>
-
-            </form>
-        </div>
-    </section>
+            </div>
+        </section>
 
 
-    <script>
-        window.onload = () => document.getElementById("name").focus();
-    </script>
-    <%-include("../portials/scripts")%>
+        <script>
+            window.onload = () => document.getElementById("name").focus();
+        </script>
+        <%-include( "../portials/scripts" )%>

@@ -1,4 +1,6 @@
 {
     "typescript.suggest.enabled": false,
-    "git.ignoreLimitWarning": true
+    "git.ignoreLimitWarning": true,
+    "editor.renderWhitespace": "none",
+    "editor.insertSpaces": false
 }

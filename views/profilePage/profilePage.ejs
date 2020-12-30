@@ -2,8 +2,10 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="It's the login page, used to enter the website :)">
+
     <link rel="stylesheet" href="../../css/personalpage.css">
     <link rel="stylesheet" href="../../css/bootstrap.min.css">
     <link rel="stylesheet" href="../../css/all.min.css">
@@ -33,57 +35,60 @@
                     editor.save();
                 });
             }
-        })
+        });
 
     </script>
-    <title>Goodsummaries-<%=user.name%></title>
+    <title>Goodsummaries-<%=user.name%>
+    </title>
 </head>
 
 <body>
 
-    <%-include("../portials/header")%>
 
-    <div class="personal_data_father">
-        <div class="container">
-            <div class="profile_data ">
 
-                <%if(user.coverimagepath!=null){%>
-                <div class="img"><img src="<%=user.coverimagepath%>" height=100px></div>
-                <%}else{%>
-                <div class="img"><img src="../../images/profile_image.png" height=100px></div>
-                <%}%>
-                    <div class="personal_name">
-                        <h2><%=user.name%></h2>
-                <%if(currentUser==true){%>
-                <a href="Goodsummaries/editProfilePage" style="color:#007AB5; text-decoration: underline;">Edit
-                    profile</a>
-                <%}%>
-
-        </div>
-    </div>
-</div>
-</div>
-
-<div class="books-section">
-    <div class="container">
-        <h2>Published books</h2>
-        <div class="books">
-            <%if(books[0]){%>
-                <%books.forEach((book)=>{%>
-                <div class="book">
-                    <div class="img"> <img class="book_img" src="<%=book.coverimagepath%>" alt="Card image cap"></div>
-                    <h5 class="book-title"><%=book.Title%></h5>
-                    <a href="/Goodsummaries/book/<%=book._id%>" class="read-button">Read</a>
-                </div>
-                <% })}else{%>
-                <div class="empty-img">
-                    <img src="../images/empty-profile.png" height=200px alt="empty" />
-                </div>
-                <%}%>
-                </div>
+    <%-include( "../portials/header" )%>
+        <section class="content">
+            <div class="container">
+                <%-include( "components/personalData" )%>
+                    <div class="all-books">
+                        <div class="title">
+                            <h3 class="active book-title books-published-title">Published books</h3>
+                            <h3 class="book-title books-saved-title">Saved books</h3>
+                        </div>
+                        <div class="p-books">
+                            <%-include( "components/books" )%>
+                        </div>
+                        <div class="p-books d-none">
+                            <%-include( "../Home/components/allSavedBooks" )%>
+                        </div>
+                    </div>
             </div>
-        </div>
+        </section>
 
 
-  <!--end books style-->
-  <%-include("../portials/scripts")%>
+        <script>
+            let title = document.querySelectorAll(".book-title")
+            let all_books = document.querySelectorAll(".p-books")
+
+            for (let i = 0; i < title.length; i++) {
+                title[i].addEventListener("click", () => {
+                    let previous = title[i - 1]
+                    let next = title[i + 1]
+                    if (previous !== undefined) {
+                        previous.classList.remove("active")
+                    }
+
+                    title[i].classList.add("active")
+                    next.classList.remove("active")
+
+                    all_books[i].classList.remove("d-none")
+                    if (all_books[i + 1] !== undefined) {
+                        all_books[i + 1].classList.add("d-none")
+                    }
+                    all_books[i - 1].classList.add("d-none")
+                })
+            }
+
+
+        </script>
+        <%-include( "../portials/scripts" )%>

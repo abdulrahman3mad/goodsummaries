@@ -1,0 +1,70 @@
+$mainColor:#727272;
+$secondaryColor2: #f8f2e9;
+$accentColor: #53BCBC;
+$mainfont: Arial;
+$textColor:rgb(133, 132, 132);
+
+
+/* || start books style*/
+.books {
+	.book-link {
+		text-decoration: none;
+	}
+	.book {
+		margin-right: 20px;
+		height: fit-content;
+		border-radius: 7px;
+		border: 1px solid #53BCBC;
+		margin-top: 20px;
+		background-color: white;
+		max-width: 150px;
+		padding: 10px;
+		&:hover {
+			transform: scale(1.01);
+			box-shadow: 1px 2px 3px rgb(207, 207, 207), -1px -1px 3px rgb(207, 207, 207);
+		}
+		.img {
+			max-width: 200px;
+			img {
+				max-width: 100%;
+			}
+		}
+		h5.book-title {
+			margin-top: 15px;
+			margin-bottom: 2px;
+			color: $mainColor;
+			font-weight: bold;
+			font-size: 25px;
+			max-width: 200px;
+			word-wrap: break-word;
+		}
+		p.Summaryperson {
+			font-size: 10px;
+			color: $mainColor;
+			a {
+				color: $accentColor;
+			}
+		}
+		.book-buttons {
+			display: flex;
+		}
+		button.save, button.saved {
+			margin-top: 5px;
+			color: white;
+			border:none;
+			padding: 5px 10px;
+			font-weight: bold;
+			font-size: 10px;
+			border-radius: 8px;
+			background-color: rgb(172, 172, 172);
+			cursor: pointer;
+			&:hover {
+				background-color: rgb(128, 126, 126);
+			}
+		}
+		span.saved {
+			background-color: #cdcdcd;
+		}
+	}
+}
+/* || end books style*/

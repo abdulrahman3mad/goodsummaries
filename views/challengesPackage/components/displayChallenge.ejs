@@ -1,0 +1,42 @@
+<div class="display-challenge">
+
+    <%let endDates=[ challenge.endDate.getDate(), challenge.endDate.getMonth()+1, challenge.endDate.getFullYear() ] %>
+
+        <%let startDates=[ challenge.startDate.getDate(), challenge.startDate.getMonth()+1,
+            challenge.startDate.getFullYear() ] %>
+            <div class="challenge-header">
+                <p class="date">
+                    <%=startDates[0]%>/<%=startDates[1]%>/<%=startDates[2]%> :
+                                <%=endDates[0]%>/<%=endDates[1]%>/<%=endDates[2]%>
+                </p>
+                <div class="challenge-options">
+                    <span class="edit">Edit</span>
+                    <form method="POST" action="/Goodsummaries/challenges/delete/<%=challenge._id%>?_method=DELETE">
+                        <button class="delete" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+
+            <p class="">You have put <%=challenge.numberOfSummaries%> of <%=challenge.numberOfBooks%>
+                        Summaries </p>
+            <div>
+                <%let myNumberOfBook=challenge.numberOfBooks%>
+                    <% let myNumberOfSummaries=challenge.numberOfSummaries %>
+                        <% const totalValue=(myNumberOfSummaries/myNumberOfBook)*100 %>
+
+                            <progress value="<%=totalValue%>" max="100">
+                            </progress>
+
+                            <div class="summaries">
+                                <%books.forEach(book=>{%>
+                                    <a href="/Goodsummaries/book/<%=book._id%>" class="book-link">
+                                        <div class="summary">
+                                            <div class="img"> <img class="book_img" src="<%=book.coverimagepath%>"
+                                                    alt="Card image cap">
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <%})%>
+                            </div>
+            </div>
+</div>
