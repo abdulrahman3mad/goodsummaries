@@ -16,6 +16,9 @@ const getChallenge = async (req, res) => {
             let previousChallenges = await challenges.find({ userName: user.name })
             let book = await books.find({ _id: challenge.books })
 
+            console.log(challenge.numberOfBooks);
+            console.log(challenge.numberOfSummaries);
+
             res.render("challengesPackage/challenges", { challenge: challenge, user: user, books: book, previousChallenges: previousChallenges })
         } catch {
             res.render("challengesPackage/challenges", { user: user, challenge: null })

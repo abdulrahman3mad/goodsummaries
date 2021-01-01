@@ -5,25 +5,26 @@
   background-color: #fff1da;
   margin-top: 80px;
   text-align: center;
-  padding: 5px 25px;
+  padding: 5px 13px;
   border-radius: 7px; }
   .challenge h5.challenge-header {
     font-size: 30px;
     color: #727272; }
   .challenge .challenge-img {
     margin-bottom: 20px; }
+    .challenge .challenge-img img {
+      height: 70px; }
+  .challenge .challenge-number {
+    font-weight: bold; }
   .challenge .challenge-options {
     float: right; }
     .challenge .challenge-options .edit {
       cursor: pointer; }
   .challenge p {
-    font-size: 20px;
-    color: #858484;
-    font-weight: bold; }
-  .challenge .progress {
-    width: 100px !important; }
-    .challenge .progress .progress-bar {
-      background-color: #53BCBC; }
+    font-size: 16px;
+    color: #858484; }
+  .challenge progress {
+    width: 105px !important; }
 
 /* || end challenge style*/
 

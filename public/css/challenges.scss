@@ -11,7 +11,7 @@ $textColor:rgb(133, 132, 132);
 	background-color: rgb(255, 241, 218);
 	margin-top: 80px;
 	text-align: center;
-	padding: 5px 25px;
+	padding: 5px 13px;
 	border-radius: 7px;
 	h5.challenge-header {
 		font-size: 30px;
@@ -19,7 +19,15 @@ $textColor:rgb(133, 132, 132);
 	}
 	.challenge-img {
 		margin-bottom: 20px;
+		img{
+			height: 70px;
+		}
 	}
+
+	.challenge-number{
+		font-weight: bold;
+	}
+
 	.challenge-options {
 		.edit {
 			cursor: pointer;
@@ -27,15 +35,11 @@ $textColor:rgb(133, 132, 132);
 		float:right;
 	}
 	p {
-		font-size: 20px;
+		font-size: 16px;
 		color: $textColor;
-		font-weight: bold;
 	}
-	.progress {
-		width: 100px !important;
-		.progress-bar {
-			background-color: $accentColor
-		}
+	progress{
+		width: 105px !important;
 	}
 }
 /* || end challenge style*/

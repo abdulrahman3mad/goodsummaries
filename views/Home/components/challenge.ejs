@@ -1,19 +1,20 @@
 <%if(challenge){%>
     <div class="challenge">
-        <div class="display-challenge">
-            <div class="challenge-img"><img src="../images/123.png" height=100px /></div>
-            <p class="">You have put 9 of
-                <%=challenge.numberOfBooks%>
-                    Summaries
-            </p>
-            <div class="progress">
-                <%let myNumberOfBook=challenge.numberOfBooks %>
-                    <%let myNumberOfSummaries=challenge.numberOfSummaries %>
-                        <%const totalValue=(myNumberOfSummaries /myNumberOfBook)*100 %>
-                            <div class="progress-bar" role="progressbar" style="width:90%"
-                                aria-valuenow="<%=totalValue%>" aria-valuemin="0" aria-valuemax="100"></div>
-            </div>
+        <%let myNumberOfBook=challenge.numberOfBooks %>
+            <%let myNumberOfSummaries=challenge.numberOfSummaries %>
+                <%const totalValue=(myNumberOfSummaries /myNumberOfBook)*100 %>
+                    <div class="display-challenge">
+                        <div class="challenge-img"><img src="../images/123.png" /></div>
+                        <p class="">You have put <span class="challenge-number">
+                                <%=challenge.numberOfSummaries%>
+                            </span> of <span class="challenge-number">
+                                <%=challenge.numberOfBooks%>
+                            </span>
+                            Summaries
+                        </p>
+                        <progress value="<%=totalValue%>" max="100">
+                        </progress>
 
-        </div>
+                    </div>
     </div>
     <%}%>

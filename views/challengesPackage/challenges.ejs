@@ -20,71 +20,65 @@
             <img src="../images/profile_image.png" height=100px />
             <h2>Summarization challenges</h2>
         </div>
-
         <%if(challenge){%>
             <div class="challenge">
                 <div class="container">
-
                     <%-include( "components/displayChallenge" )%>
-
                         <%-include( "components/editChallenge" )%>
-                            <%}else{%>
-                                <%-include( "components/addChallenge" )%>
-                                    <%}%>
                 </div>
             </div>
+            <%}%>
 
-            <script>
-                let add_challenge = document.querySelector(".add-challenge")
-                let set_input = document.querySelector(".set-input")
-                let title_input = document.querySelector(".title-input")
-
-
-                add_challenge.addEventListener("click", () => {
-                    set_input.classList.remove("d-none")
-                    add_challenge.textContent = ""
-                });
+                <script>
+                    let add_challenge = document.querySelector(".add-challenge")
+                    let set_input = document.querySelector(".set-input")
+                    let title_input = document.querySelector(".title-input")
 
 
-                let date = new Date();
-                let myDate = {
-                    day: date.getDate(),
-                    month: date.getMonth() + 1,
-                    year: date.getFullYear(),
-                    currentDate: this.year + "-" + this.month + "-" + this.day,
+                    add_challenge.addEventListener("click", () => {
+                        set_input.classList.remove("d-none")
+                        add_challenge.textContent = ""
+                    });
 
-                    getCurrentDate() {
-                        if (this.month < 10) {
-                            this.month = `0${this.month}`
+
+                    let date = new Date();
+                    let myDate = {
+                        day: date.getDate(),
+                        month: date.getMonth() + 1,
+                        year: date.getFullYear(),
+                        currentDate: this.year + "-" + this.month + "-" + this.day,
+
+                        getCurrentDate() {
+                            if (this.month < 10) {
+                                this.month = `0${this.month}`
+                            }
+                            if (this.day < 10) {
+                                this.day = `0${this.day}`
+                            }
+                            this.currentDate = this.year + "-" + this.month + "-" + this.day
+                            return this.currentDate;
+                        },
+                        getCurrentDateEnd() {
+                            return (
+                                this.year + "-" + this.month + "-" + (this.day + 1)
+                            )
                         }
-                        if (this.day < 10) {
-                            this.day = `0${this.day}`
-                        }
-                        this.currentDate = this.year + "-" + this.month + "-" + this.day
-                        return this.currentDate;
-                    },
-                    getCurrentDateEnd() {
-                        return (
-                            this.year + "-" + this.month + "-" + (this.day + 1)
-                        )
-                    }
-                };
+                    };
 
 
-                let startDateInput = document.querySelector("input.startDate");
-                startDateInput.setAttribute("min", myDate.getCurrentDate())
+                    let startDateInput = document.querySelector("input.startDate");
+                    startDateInput.setAttribute("min", myDate.getCurrentDate())
 
-                let endDateInput = document.querySelector("input.endDate");
-                endDateInput.setAttribute("min", myDate.getCurrentDateEnd())
+                    let endDateInput = document.querySelector("input.endDate");
+                    endDateInput.setAttribute("min", myDate.getCurrentDateEnd())
 
-                let edit = document.querySelector("span.edit")
-                let display_challenge = document.querySelector("div.display-challenge")
-                let edit_challenge = document.querySelector("div.edit-challenge")
+                    let edit = document.querySelector("span.edit")
+                    let display_challenge = document.querySelector("div.display-challenge")
+                    let edit_challenge = document.querySelector("div.edit-challenge");
 
-
-                edit.addEventListener("click", () => {
-                    display_challenge.classList.add("d-none")
-                    edit_challenge.classList.remove("d-none")
-                });
-            </script>
-            <%-include( "../portials/scripts" ) %>
+                    edit.addEventListener("click", () => {
+                        display_challenge.classList.add("d-none")
+                        edit_challenge.classList.remove("d-none")
+                    });
+                </script>
+                <%-include( "../portials/scripts" ) %>

@@ -18,7 +18,6 @@ const getMainPage = async (req, res) => {
     try {
         const user = req.user
         const searchrules = searchRules(req, res)
-        console.log(searchrules);
         const allBooks = await books.find(searchrules, { WhoLoveIt: 0, Summary: 0, Category: 0 }).limit(10)
 
         if (user) {
@@ -43,7 +42,6 @@ const getMainPage = async (req, res) => {
 
 
 const getPublishPage = async (req, res) => {
-
     const user = req.user;
     if (!user) {
         res.render(`Auth/login`, { errorMakingUser: `` })
@@ -62,46 +60,33 @@ const getPublishPage = async (req, res) => {
 }
 
 
-function addBookToChallenge(res, req, challenge, book) {
-    if (req.body.challengeCheck) {
-        challenge.books.push(book._id).numberOfSummaries++;
-    }
-}
-
-function createBook({ Title, Summary, Category, Publisher }, cover) {
-    const book = new books({
-        Title,
-        Summary,
-        Category,
-        Publisher
-    })
-    bookSave(book, cover);
-    return book;
-}
-
 const addBook = async (req, res) => {
     try {
         let user = req.user;
         if (req.body.cover == null) res.render(`errorPage`, { errroMessage: `something went wrong.try to reload the page` })
 
-        let book = createBook({
+        let book = new books({
             Title: req.body.Title,
             Summary: req.body.Summary,
             Category: req.body.Category,
             Publisher: user.name
-        }, req.body.cover)
-
-        let challenge = await challenges.findOne({ userName: user.name, finished: false })
+        });
+        bookSave(book, req.body.cover);
         await book.save();
-        if (challenge.numberOfBooks == challenge.numberOfSummaries) {
-            challenge.finished = true;
-        }
-        else {
-            addBookToChallenge(res, req, challenge, book)
-        }
-        await challenge.save();
+
         user.publishedBooks.push(book._id)
         await user.save()
+
+        if (req.body.challengeCheck) {
+            let challenge = await challenges.findOne({ userName: user.name, finished: false })
+            challenge.books.push(book._id);
+            challenge.numberOfSummaries++;
+            if (challenge.numberOfBooks == challenge.numberOfSummaries) {
+                challenge.finished = true;
+            }
+            await challenge.save();
+        }
+
         res.redirect(`/Goodsummaries`);
     } catch {
         res.render(`errorPage`, { errroMessage: `something went wrong. try to reload the page` })
@@ -151,7 +136,7 @@ const saveBook = async (req, res) => {
     let book = await books.findById(id)
     user.savedBooks.push(book._id)
     await user.save()
-    if (req.url.includes(`book`)) res.redirect(`/Goodsummaries/book/${book._id}`)
+    if (req.originalUrl.includes("book")) res.redirect(`/Goodsummaries/book/${id}`)
     else res.redirect(`/Goodsummaries`)
 }
 
@@ -163,7 +148,7 @@ const unSaveBook = async (req, res) => {
     let bookNumber = user.savedBooks.indexOf(id)
     user.savedBooks.splice(bookNumber, 1)
     await user.save()
-    if (req.url.includes(`book`)) res.redirect(`/Goodsummaries/book/${id}`)
+    if (req.originalUrl.includes("book")) res.redirect(`/Goodsummaries/book/${id}`)
     else res.redirect(`/Goodsummaries`)
 }
 

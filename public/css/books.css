@@ -9,10 +9,11 @@
   margin-top: 20px;
   background-color: white;
   max-width: 150px;
-  padding: 10px; }
+  padding: 10px;
+  transition: transform 0.5s; }
   .books .book:hover {
     transform: scale(1.01);
-    box-shadow: 1px 2px 3px #cfcfcf, -1px -1px 3px #cfcfcf; }
+    box-shadow: 1px 1px 5px #c3c3c3; }
   .books .book .img {
     max-width: 200px; }
     .books .book .img img {

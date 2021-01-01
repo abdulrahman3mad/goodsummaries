@@ -58,11 +58,27 @@
 
                             let aside = document.querySelector(".aside");
                             let books_section = document.querySelector(".books-section")
-                            if (!aside) {
+                            if (aside.childElementCount == 0) {
                                 books_section.classList.remove("col-lg-10")
                                 books_section.classList.add("col-lg-12")
                                 aside.classList.remove("col-lg-2")
-                            }
+                            };
+
+
+                            let saveButton = document.querySelector(".saved");
+
+                            saveButton.addEventListener("mouseover", () => {
+                                saveButton.textContent = "Unsave";
+                            });
+
+                            saveButton.addEventListener("mouseleave", () => {
+                                saveButton.textContent = "Saved";
+                            })
+
+
+
+
+
 
                         </script>
                         <%-include( "../portials/scripts" )%>

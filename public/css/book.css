@@ -22,8 +22,7 @@ body {
   margin-bottom: 0;
   font-weight: bold; }
 .book-details .book-category {
-  background-color: #e0e0e0;
-  color: #53BCBC;
+  color: grey;
   margin-top: 15px;
   display: inline-block; }
 .book-details button:not(.like, .save) {
@@ -69,6 +68,7 @@ body {
   margin-top: 50px;
   margin-right: 20px; }
 .book-details .delete {
+  cursor: pointer;
   margin-top: 50px;
   background-color: #e93535;
   float: left;
@@ -85,7 +85,6 @@ body {
   padding: 2px 5px;
   border-radius: 5px; }
 .book-details .owner {
-  margin-top: 10px;
   margin-bottom: 40px; }
 .book-details .owner span {
   font-weight: bold;

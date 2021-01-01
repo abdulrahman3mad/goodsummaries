@@ -12,17 +12,17 @@
                             </h5>
 
                             <p class="Summaryperson">By
-                                <a href="Goodsummaries/profilepage/<%=book.publisher%>">
+                                <a href="Goodsummaries/profilePage/<%=book.Publisher%>">
                                     <%=book.Publisher%>
                                 </a>
                             </p>
                             <%if(user){%>
                                 <%if(user.savedBooks.indexOf(book._id)==-1){%>
-                                    <form action="Goodsummaries/book/save/<%=book._id%>" method="POST">
+                                    <form action="Goodsummaries/save/<%=book._id%>" method="POST">
                                         <button class="save" type="submit">Save</button>
                                     </form>
                                     <%}else{%>
-                                        <form action="Goodsummaries/book/unsave/<%=book._id%>" method="POST">
+                                        <form action="Goodsummaries/unsave/<%=book._id%>" method="POST">
                                             <button class="saved" type="submit">Saved</button>
                                         </form>
                                         <%}}%>

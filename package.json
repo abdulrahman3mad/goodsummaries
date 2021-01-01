@@ -29,6 +29,7 @@
     "mongoose": "^5.10.7",
     "multer": "^1.4.2",
     "multer-gridfs-storage": "^4.2.0",
+    "sweetalert2": "^10.12.7",
     "textarea-editor": "^2.1.1",
     "validator": "^13.1.17"
   },

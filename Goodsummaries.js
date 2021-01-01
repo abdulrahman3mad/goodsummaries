@@ -11,7 +11,6 @@ const booksRoutes = require("./routes/summaryroutes");
 const cookieParser = require("cookie-parser");
 const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
-const port = process.env.PORT || 3000;
 const { urlencoded, query } = require("express");
 const method_override = require("method-override");
 const auth = require("./middelware/auth");
@@ -30,7 +29,7 @@ const mongoDB =
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(port, () => {
+    app.listen(process.env.PORT || 3000, () => {
       console.log("has connected");
     })
   })

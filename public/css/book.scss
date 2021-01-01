@@ -34,8 +34,7 @@ body {
 	}
 
 	.book-category {
-		background-color: rgb(224, 224, 224);
-		color: $accentColor;
+		color: grey;
 		margin-top: 15px;
 		display: inline-block;
 	}
@@ -100,6 +99,7 @@ body {
 		margin-right: 20px;
 	}
 	.delete {
+		cursor: pointer;
 		margin-top: 50px;
 		background-color:rgb(233, 53, 53);
 		float: left;
@@ -118,9 +118,7 @@ body {
 		border-radius: 5px;
 	}
 	.owner {
-		margin-top: 10px;
-		margin-bottom: 40px;
-		
+		margin-bottom: 40px;		
 	}
 	.owner span {
 		font-weight: bold;

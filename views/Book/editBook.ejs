@@ -16,23 +16,21 @@
 
 <script src="https://cdn.tiny.cloud/1/izfyyegnnafqa89ac21by8or054frlvlnt15wliptepsgr5l/tinymce/5/tinymce.min.js"
     referrerpolicy="origin"></script>
-
 <script>
     tinymce.init({
         selector: '#Summary',
         height: 400,
-        plugins: 'lists, link, image, media',
-        toolbar: "undo redo | styleselect | bold italic | justifyleft justifycenter justifyright | bullist numlist |forecolor backcolor| preview code",
-
+        plugins: 'lists, link',
+        fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 18pt 24pt 30pt 36pt 48pt",
+        content_style: "body{font-size:18pt;}",
+        toolbar: "undo redo | styleselect | bold italic | fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist |forecolor backcolor| preview code | outdent indent",
         menubar: false,
         setup: function (editor) {
             editor.on('change', function (e) {
                 editor.save();
-
-
             });
         }
-    })
+    });
 </script>
 
 <body>

@@ -13,6 +13,11 @@
     <link rel="preload" href="../../css/book.css" as="style" onload='this.rel="stylesheet"'>
     <link rel="preload" href="../../css/bootstrap.min.css" as="style" onload='this.rel="stylesheet"'>
     <link rel="preload" href="../../css/all.min.css" as="style" onload='this.rel="stylesheet"'>
+
+
+
+
+
 </head>
 
 <title>
@@ -43,7 +48,8 @@
                             <div class="options-inner col-8">
                                 <%if(owner==true){%>
                                     <a href="/Goodsummaries/book/<%=book._id%>/edit" class="edit">Edit</a>
-                                    <form method="POST" action="/Goodsummaries/book/<%=book._id%>?_method=DELETE">
+                                    <form method="POST" class="delete-form"
+                                        action="/Goodsummaries/book/<%=book._id%>?_method=DELETE">
                                         <button class="delete" type="submit">Delete</button>
                                     </form>
                                     <%}else if(owner!=true){%>
@@ -119,5 +125,28 @@
             </div>
 
         </section>
+        <script src="sweetalert2.all.min.js">
+
+
+            let deleteButton = document.querySelector(".delete");
+            let form = document.querySelector(".delete-form")
+
+            form.addEventListener("submit", () => {
+
+                Swal.fire({
+                    title: `Are you sure`,
+                    text: `You won't be able to restore this book :)`,
+                    icon: `warning`,
+                    showCancelButton: true,
+                    confirmButtonColor: `#53BCBC`,
+                    cancelButtonColor: `#d33`,
+                    confirmButtonText: `Yes, delete it`
+                }).then(result => {
+                    Swal.fire(
+                        `Deleted`
+                    )
+                })
+            });
+        </script>
 
         <%-include( "../portials/scripts.ejs" )%>
