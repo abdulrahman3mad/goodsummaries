@@ -29,12 +29,14 @@ const mongoDB =
 mongoose
   .connect(mongoDB, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    app.listen(process.env.PORT || 3000, () => {
-      console.log("has connected");
-    })
+
   })
   .catch((req, res) => {
   });
+
+app.listen(process.env.PORT || 3000, () => {
+  console.log("has connected");
+})
 
 app.use(cookieParser());
 app.use(method_override("_method"));
