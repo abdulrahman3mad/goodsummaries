@@ -1,6 +1,0 @@
-{
-    "typescript.suggest.enabled": false,
-    "git.ignoreLimitWarning": true,
-    "editor.renderWhitespace": "none",
-    "editor.insertSpaces": false
-}

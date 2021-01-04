@@ -1,23 +1,2 @@
-/*start form-search style*/
-form {
-  margin-top: 40px; }
-  form label {
-    color: #53BCBC; }
-
-/*end form-search style*/
-/*start books style*/
-.card {
-  margin: 20px; }
-  .card .card-title {
-    color: #53BCBC; }
-  .card .card-body .read-button {
-    background-color: #53BCBC !important;
-    border: none !important; }
-  .card .card-body .read-button:hover {
-    background-color: #207979 !important; }
-  .card a.writer {
-    color: #53BCBC !important; }
-
-/*end books style*/
-
+form{margin-top:40px}form label{color:#53BCBC}.card{margin:20px}.card .card-title{color:#53BCBC}.card .card-body .read-button{background-color:#53BCBC !important;border:none !important}.card .card-body .read-button:hover{background-color:#207979 !important}.card a.writer{color:#53BCBC !important}
 /*# sourceMappingURL=summaries.css.map */

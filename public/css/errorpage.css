@@ -1,15 +1,2 @@
-.img {
-  width: 450px;
-  margin: 0 auto; }
-
-img {
-  width: 100%; }
-
-h5 {
-  text-align: center;
-  font-size: 30px;
-  font-family: Arial, Helvetica, sans-serif;
-  color: #888888;
-  padding: 0 350px; }
-
+.img{width:450px;margin:0 auto}img{width:100%}h5{text-align:center;font-size:30px;font-family:Arial, Helvetica, sans-serif;color:#888;padding:0 350px}
 /*# sourceMappingURL=errorpage.css.map */

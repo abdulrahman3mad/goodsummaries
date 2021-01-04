@@ -5,7 +5,7 @@ if (process.env.NODE_ENV !== "production") {
 
 
 const express = require("express");
-const app = express(); //make an instance from the object express 
+const app = express();
 const usersauth = require("./routes/authRoutes");
 const booksRoutes = require("./routes/summaryroutes");
 const cookieParser = require("cookie-parser");

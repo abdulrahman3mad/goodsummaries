@@ -1,26 +1,2 @@
-@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");
-body {
-  padding: 0;
-  margin: 0;
-  background-color: #eeeeee !important;
-  font-family: BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Symbol"; }
-
-.col-auto {
-  padding-left: 0 !important; }
-
-/*
-* { background-color: rgba(44, 82, 207, 0.2); }
-* * { background-color: rgba(0,255,0,.2); }
-* * * { background-color: rgba(0,0,255,.2); }
-* * * * { background-color: rgba(255,0,255,.2); }
-* * * * * { background-color: rgba(0,255,255,.2); }
-* * * * * * { background-color: rgba(255,255,0,.2); }
-* * * * * * * { background-color: rgba(255,0,0,.2); }
-* * * * * * * * { background-color: rgba(0,255,0,.2); }
-* * * * * * * * * { background-color: rgba(0,0,255,.2); }
-*/
-/*framework*/
-.margin_top {
-  margin-top: 80px; }
-
+@import url("https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap");body{padding:0;margin:0;background-color:#eeeeee !important;font-family:BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif,"Apple Color Emoji","Segoe UI Symbol"}.col-auto{padding-left:0 !important}.margin_top{margin-top:80px}
 /*# sourceMappingURL=mainpage.css.map */

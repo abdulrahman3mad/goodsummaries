@@ -26,8 +26,6 @@
 
 <body>
     <%-include( "../portials/header" )%>
-
-
         <%if(!user){%>
             <%-include( "components/slide.ejs" )%>
                 <%}%>
@@ -73,12 +71,7 @@
 
                             saveButton.addEventListener("mouseleave", () => {
                                 saveButton.textContent = "Saved";
-                            })
-
-
-
-
-
+                            });
 
                         </script>
                         <%-include( "../portials/scripts" )%>
