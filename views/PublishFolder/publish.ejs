@@ -24,7 +24,21 @@
     tinymce.init({
       selector: '#Summary',
       height: 400,
-      plugins: 'lists, link',
+      plugins: 'lists, link, textpattern ',
+      textpattern_patterns: [
+        { start: '#', format: 'h1' },
+        { start: '##', format: 'h2' },
+        { start: '###', format: 'h3' },
+        { start: '####', format: 'h4' },
+        { start: '#####', format: 'h5' },
+        { start: '######', format: 'h6' },
+        { start: '*', end: '*', format: 'italic' },
+        { start: '**', end: '**', format: 'bold' },
+        { start: '-', cmd: 'InsertUnorderedList' },
+        { start: '* ', cmd: 'InsertOrderedList' },
+        { start: '~', end: '~', cmd: 'createLink' },
+        { start: '---', replacement: '<hr/>' }
+      ],
       fontsize_formats: "8pt 9pt 10pt 11pt 12pt 14pt 18pt 24pt 30pt 36pt 48pt",
       content_style: "body{font-size:18pt;}",
       toolbar: "undo redo | styleselect | bold italic | fontsizeselect | alignleft aligncenter alignright alignjustify | bullist numlist |forecolor backcolor| preview code | outdent indent",
