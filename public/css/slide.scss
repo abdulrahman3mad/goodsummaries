@@ -6,14 +6,12 @@ $textColor:rgb(133, 132, 132);
 
 /* start slide style*/
 section.webinfo {
-	padding: 60px 0;
+	padding:30px;
 	.infoimage {
-		background-color:$accentColor;
-		height: 228px;
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		color:whitesmoke;
+		color:$accentColor;
 		text-align: center;
 			h1 {
 				font-weight: bold;
