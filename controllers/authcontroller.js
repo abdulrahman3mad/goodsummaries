@@ -9,11 +9,11 @@ const signUpGet = (req, res) => res.render("Auth/signup", { errorMakingUser: "" 
 
 const signUpPost = async (req, res) => {
 
-
     //validation
     const { error } = registerValidation(req.body);
     if (error) return res.render("Auth/signup", { errorMakingUser: error.details[0].message })
 
+    console.log("hello")
 
     //check if exists
     const accountExistByEmail = await users.findOne({ email: req.body.email });

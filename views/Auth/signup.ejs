@@ -41,7 +41,12 @@
     </section>
 
 
-    <script src="portials-JS.js"></script>
+    <script>
+        let errorMakingUser = document.querySelector(".errorAlert")
+        if (errorMakingUser.textContent.trim() !== "") {
+            errorMakingUser.style.display = "block"
+        }
+    </script>
 </body>
 
 

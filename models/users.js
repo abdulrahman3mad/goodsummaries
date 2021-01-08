@@ -21,6 +21,7 @@ const usersSchema = new mongoose.Schema({
     publishedBooks: [String],
     savedBooks: [String],
 
+    following: [String]
 })
 
 /*
