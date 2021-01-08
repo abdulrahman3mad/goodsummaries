@@ -10,12 +10,11 @@
                             <h5 class="book-title">
                                 <%=book.Title%>
                             </h5>
-
-                            <p class="Summaryperson">By
-                                <a href="Goodsummaries/profilePage/<%=book.Publisher%>">
+                            <a href="Goodsummaries/profilePage/<%=book.Publisher%>">
+                                <p class="Summaryperson">By
                                     <%=book.Publisher%>
-                                </a>
-                            </p>
+                                </p>
+                            </a>
                             <%if(user){%>
                                 <%if(user.savedBooks.indexOf(book._id)==-1){%>
                                     <form action="Goodsummaries/save/<%=book._id%>" method="POST">
