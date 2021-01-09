@@ -38,6 +38,15 @@ a {
 	font-size: 10px;
 	display: block
 }
+
+.following-option{
+	background-color:$accentColor;
+	border:none;
+	border-radius: 5px;
+	color:white;
+	cursor: pointer;
+	display:inline-block;
+}
 /* end personal_data style*/
 
 /*start book style*/

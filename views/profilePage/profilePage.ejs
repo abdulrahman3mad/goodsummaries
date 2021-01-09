@@ -55,12 +55,14 @@
                             <h3 class="active book-title books-published-title">Published books</h3>
                             <h3 class="book-title books-saved-title">Saved books</h3>
                         </div>
+                        <!--
                         <div class="p-books">
                             <%-include( "components/books" )%>
                         </div>
                         <div class="p-books d-none">
                             <%-include( "../Home/components/allSavedBooks" )%>
                         </div>
+                        -->
                     </div>
             </div>
         </section>
@@ -87,7 +89,19 @@
                     }
                     all_books[i - 1].classList.add("d-none")
                 })
-            }
+            };
+
+
+            let followOption = document.querySelector(".unfollow-button");
+
+            followOption.addEventListener("mouseover", () => {
+                followOption.textContent = "Unfollow"
+            })
+            followOption.addEventListener("mouseleave", () => {
+                followOption.textContent = "Followed"
+            })
+
+
 
 
         </script>
