@@ -17,10 +17,12 @@ const getProfilePage = async (req, res) => {
         let user = await users.findOne({ name: name });
         let savedBooks = await books.find({ _id: user.savedBooks })
         let book = await books.find({ _id: user.publishedBooks })
-        if (req.user.following.indexOf(name) !== -1) {
+        if (req.user.followings.indexOf(name) !== -1) {
             followed = true;
         }
-        res.render("profilePage/profilePage", { user: user, currentUser: currentUser, books: book, errorMakingUser: "", savedBooks: savedBooks, followed: followed })
+        console.log(user.followers);
+
+        res.render("profilePage/profilePage", { profileUser: user, currentUser: currentUser, books: book, errorMakingUser: "", savedBooks: savedBooks, followed: followed, user: req.user })
     } catch {
         res.render(`errorPage`, { errorMessage: "something went wrong, try to reload the page again" })
     }
@@ -57,8 +59,15 @@ const followOption = async (req, res) => {
     const user = req.user;
     const followingUserName = req.params.name;
 
-    user.following.push(followingUserName);
+    user.followings.push(followingUserName);
+
+
+    let followedUser = await users.findOne({ name: followingUserName });
+    followedUser.followers.push(user.name);
+
+
     await user.save();
+    await followedUser.save();
     res.redirect(`/Goodsummaries/profilePage/${followingUserName}`);
 }
 
@@ -66,12 +75,19 @@ const unfollowOption = async (req, res) => {
     const user = req.user;
     const followingUserName = req.params.name;
 
-    let followingUserNumber = user.following.indexOf(followingUserName);
-    user.following.splice(followingUserNumber, 1);
+    let followingUserNumber = user.followings.indexOf(followingUserName);
+    user.followings.splice(followingUserNumber, 1);
+
+    let followedUser = await users.findOne({ name: followingUserName });
+    let followedUserNumber = followedUser.followers.indexOf(user.name);
+    followedUser.followers.splice(followedUserNumber, 1);
+
 
     await user.save()
+    await followedUser.save();
     res.redirect(`/Goodsummaries/profilePage/${followingUserName}`)
 }
+
 
 
 module.exports = {

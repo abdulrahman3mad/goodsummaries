@@ -33,7 +33,7 @@ a {
 nav {
 	background-color: $mainColor;
 	color: $secondaryColor2;
-	ul {
+	ul.list_items {
 		a {
 			opacity: 0.9;
 			font-weight: bold;
@@ -51,19 +51,102 @@ nav {
 			color: $secondaryColor2
 		}
 		li {
-			margin: 0 5px
+			margin: auto 5px
 		}
 		li.login {
 			font-size: 14px
 		}
 		li.signup {
 			font-size: 14px;
-			border-radius: 15px;
+			border-radius: 15px;	
 			&:hover {
 				background-color: #3d9999 !important
 			}
 		}
+		.status-li{
+			margin:auto;
+			.status-button{
+				background-color:inherit !important;
+				border:none !important;
+				cursor: pointer;
+			}
+		.status-dropdowns{
+			overflow-y: scroll;
+			background-color:#eeeeee;
+			box-shadow: 1px 1px 3px 1px rgb(182, 182, 182), -1px 0px 1px rgb(182, 182, 182);
+			max-height:430px;
+			width:330px;
+			top:70px;
+			right:217px;
+			padding:0 10px;
+			position:absolute;
+			text-align: left;
+			font-size:0.9em;
+			color:$mainColor;
+			.status-header{
+				padding:10px 3px;
+				h1{
+					font-weight: bold;
+					font-size:1em;
+					margin-bottom:0
+				}
+				a{
+					color:$accentColor !important;
+					font-size:0.7em;
+					cursor: pointer;
+				}
+			}
+			.status{
+				border-top:1px solid $mainColor;
+				padding:8px 3px;
+			
+				.individual-status{
+					display: flex;
+					padding:0 4px;
+
+					.seen-icon{
+						border-radius: 50%;
+						background-color:$accentColor;
+						width:11px;
+						height:11px;
+					}
+					p{
+						display:inline;
+					}
+					a{
+						color:$mainColor !important;
+					}
+					.user-name{
+						font-weight: bold;
+					}
+					a.status-message-link{
+						color:#359e9e !important;
+						&:hover{
+							text-decoration: underline !important;
+						}
+					}
+					.status-image{
+						display: inline-block;
+						margin-right:8px;
+						text-align: right;
+					}
+					img{
+						border-radius: 50%;
+						border:1px solid black	
+					}
+				}
+			}	
+		}
 	}
+	.profile{
+		margin-right:20px;
+		img{
+			height:35px !important;
+			border-radius: 50%;
+			border:1px solid $secondaryColor2
+		}
+	}
+}
 	.section-elements {
 		font-size: 17px
 	}

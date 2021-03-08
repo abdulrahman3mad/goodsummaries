@@ -18,7 +18,8 @@ const getMainPage = async (req, res) => {
     try {
         const user = req.user
         const searchrules = searchRules(req, res)
-        const allBooks = await books.find(searchrules, { WhoLoveIt: 0, Summary: 0, Category: 0 }).limit(10)
+        const allBooks = await books.find(searchrules, { WhoLoveIt: 0, Summary: 0, Category: 0 }).limit(2)
+        res.books = allBooks;
 
         if (user) {
             let savedBooks = await books.findOne({ _id: user.savedBooks }, { WhoLoveIt: 0, Summary: 0, Category: 0 })
@@ -26,13 +27,12 @@ const getMainPage = async (req, res) => {
 
             if (challenge) {
                 res.render(`Home/home`, { books: allBooks, title: `Goodsummaries-Home`, savedBooks: savedBooks, challenge: challenge, user: user })
-            }
-            else {
+            } else {
                 res.render(`Home/home`, { books: allBooks, title: `Goodsummaries-Home`, user: user, savedBooks: savedBooks, challenge: challenge })
             }
-        }
-        else {
-            res.render(`Home/home`, { books: allBooks, title: `Goodsummaries-Home`, savedBooks: null, challenge: null })
+
+        } else {
+            res.render(`Home/home`, { books: allBooks, title: `Goodsummaries-Home`, savedBooks: null })
         }
     } catch {
         res.render(`errorPage`, { errorMessage: "something went wrong, try to reload the page again" })
@@ -74,21 +74,32 @@ const addBook = async (req, res) => {
         bookSave(book, req.body.cover);
         await book.save();
 
+        user.followers.forEach(async (follower) => {
+            let userFollower = await users.findOne({ name: follower })
+            userFollower.status.push({ userName: user.name, statusMessage: `Published a summary called ${req.body.Title}`, statusLink: `book/${book._id}`, seen: false })
+            userFollower.save();
+        })
+
         user.publishedBooks.push(book._id)
         await user.save()
 
-        if (req.body.challengeCheck) {
-            let challenge = await challenges.findOne({ userName: user.name, finished: false })
-            challenge.books.push(book._id);
-            challenge.numberOfSummaries++;
-            if (challenge.numberOfBooks == challenge.numberOfSummaries) {
-                challenge.finished = true;
-            }
-            await challenge.save();
-        }
 
-        res.redirect(`/Goodsummaries`);
-    } catch {
+        if (req.body.challengeCheck) {
+            try {
+                let challenge = await challenges.findOne({ userName: user.name, finished: false })
+                challenge.books.push(book._id);
+                challenge.numberOfSummaries++;
+                if (challenge.numberOfBooks == challenge.numberOfSummaries) {
+                    challenge.finished = true;
+                }
+                await challenge.save();
+                res.redirect(`/Goodsummaries`);
+
+            } catch {
+                res.redirect(`/Goodsummaries`);
+            }
+        }
+    } catch (error) {
         res.render(`errorPage`, { errroMessage: `something went wrong. try to reload the page` })
     }
 }
@@ -115,9 +126,13 @@ const getBook = async (req, res) => {
         let liked = false;
 
         let book = await books.findById(id)
+        if (req.originalUrl.includes("status"))
 
-        if (book.WhoLoveIt.indexOf(user._id) !== -1) liked = true;
+            //check if he has already liked it
+            if (book.WhoLoveIt.indexOf(user._id) !== -1) liked = true
+        //check if he is the owner of the book
         if (user.publishedBooks.indexOf(id) !== -1) owner = true
+        //check if he saved the book before
         if (user.savedBooks.indexOf(book._id) !== -1) savedCheck = true
         res.render(`Book/book`, { book: book, user: user, owner: owner, saved: savedCheck, liked: liked })
     }
@@ -141,13 +156,9 @@ const saveBook = async (req, res) => {
 }
 
 const unSaveBook = async (req, res) => {
-    const id = req.params.id
-    const user = req.user;
-
-
-    let bookNumber = user.savedBooks.indexOf(id)
-    user.savedBooks.splice(bookNumber, 1)
-    await user.save()
+    let bookNumber = user.savedBooks.indexOf(req.params.id)
+    req.user.savedBooks.splice(bookNumber, 1)
+    await req.user.save()
     if (req.originalUrl.includes("book")) res.redirect(`/Goodsummaries/book/${id}`)
     else res.redirect(`/Goodsummaries`)
 }
@@ -155,10 +166,8 @@ const unSaveBook = async (req, res) => {
 
 const editBook = async (req, res) => {
     try {
-        const id = req.params.id;
-        const user = req.user;
-        let book = await books.findById(id)
-        res.render(`Book/editBook`, { book: book, user: user })
+        let book = await books.findById(req.params.id)
+        res.render(`Book/editBook`, { book: book, user: req.user })
     }
     catch {
         res.render(`errorPage`, { errroMessage: `Something went wrong, please try to reload the page again`, Title: `Error` });

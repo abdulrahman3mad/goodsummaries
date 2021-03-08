@@ -20,8 +20,11 @@ const usersSchema = new mongoose.Schema({
     booksLiked: [String],
     publishedBooks: [String],
     savedBooks: [String],
+    followings: [String],
+    followers: [String],
 
-    following: [String]
+    status: [Object]
+
 })
 
 /*

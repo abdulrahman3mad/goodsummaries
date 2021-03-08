@@ -19,8 +19,7 @@
     <link rel="preload" href="css/all.min.css" as="style" onload='this.rel="stylesheet"'>
     <link rel="preload" href="css/savedbooks.css" as="style" onload='this.rel="stylesheet"'>
     <link rel="preload" href="css/challenges.css" as="style" onload='this.rel="stylesheet"'>
-    <link rel="stylesheet" href="css/portials/footer.css">
-    <link rel="prefetch" href="../profilePage/profilePage.ejs">
+    <link rel="preload" href="css/portials/footer.css" as="style" onload='this.rel="stylesheet"'>
 </head>
 
 
@@ -29,21 +28,22 @@
         <%if(!user){%>
             <%-include( "components/slide.ejs" )%>
                 <%}%>
-
                     <div class="content">
+                        <div class="books"></div>
                         <div class=container>
                             <div class="row">
                                 <div class="element"></div>
-
-                                <section class="books-section col-12 col-lg-10 margin_top">
+                                <section class="books-section col-12 col-lg-10 ">
                                     <%-include( "components/form.ejs" )%>
                                         <%-include( "components/books.ejs" )%>
                                 </section>
                                 <aside class="d-none d-lg-block aside col-lg-2 col-12 ">
                                     <%if(user){%>
+
                                         <%if(savedBooks!==null&&savedBooks!==undefined){%>
                                             <%-include( "components/saved_books.ejs" )%>
                                                 <%-include( "components/challenge.ejs" )%>
+
                                 </aside>
                                 <%}}%>
                             </div>
@@ -54,6 +54,21 @@
                         <!--end books display-->
                         <script>
 
+                            let books = document.querySelector(".books");
+
+                            if (window.innerHeight >= "400") {
+                                fetch('http://localhost:4000/goodsummaies')
+                                    .then(response => console.log(response))
+                            }
+
+
+
+
+                            if (!document.querySelector(".webinfo")) {
+                                document.querySelector(".content").classList.add("margin-top")
+                            };
+
+
                             let aside = document.querySelector(".aside");
                             let books_section = document.querySelector(".books-section")
                             if (aside.childElementCount == 0) {
@@ -63,15 +78,18 @@
                             };
 
 
+
                             let saveButton = document.querySelector(".saved");
 
-                            saveButton.addEventListener("mouseover", () => {
-                                saveButton.textContent = "Unsave";
-                            });
+                            if (saveButton != null) {
+                                saveButton.addEventListener("mouseover", () => {
+                                    saveButton.textContent = "Unsave";
+                                });
 
-                            saveButton.addEventListener("mouseleave", () => {
-                                saveButton.textContent = "Saved";
-                            });
+                                saveButton.addEventListener("mouseleave", () => {
+                                    saveButton.textContent = "Saved";
+                                });
+                            };
 
                         </script>
                         <%-include( "../portials/scripts" )%>

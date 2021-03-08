@@ -13,13 +13,6 @@ const challengesSchema = new mongoose.Schema({
         default: 0,
     },
 
-    startDate: {
-        type: Date,
-    },
-    endDate: {
-        type: Date,
-        required: true,
-    },
     userName: {
         type: String,
         required: true,

@@ -6,7 +6,7 @@ $textColor:rgb(133, 132, 132);
 
 /* start slide style*/
 section.webinfo {
-	padding:30px;
+	padding-top:100px;
 	.infoimage {
 		display: flex;
 		justify-content: center;
@@ -16,6 +16,9 @@ section.webinfo {
 			h1 {
 				font-weight: bold;
 				font-size: 70px;
+			}
+			p{
+				font-size:25px;
 			}
 		}
 }

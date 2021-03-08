@@ -11,6 +11,12 @@ $textColor:rgb(133, 132, 132);
 .clear {
 	clear: both;
 }
+a{
+	color:$accentColor !important;
+	&:hover{
+		text-decoration: underline !important;
+	}
+}
 .challenge-title {
 	padding: 80px 0 20px;
 	width: 100%;

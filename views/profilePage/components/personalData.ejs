@@ -2,31 +2,46 @@
     <div class="profile_data">
 
         <%if(user.coverimagepath!=null){%>
-            <div class="img"><img src="<%=user.coverimagepath%>" height=100px></div>
+            <div class="img"><img src="<%=profileUser.coverimagepath%>" height=100px></div>
             <%}else{%>
                 <div class="img"><img src="../../images/profile_image.png" height=100px></div>
                 <%}%>
                     <div class="personal_name">
                         <h2>
-                            <%=user.name%>
+                            <%=profileUser.name%>
                         </h2>
-                        <div class="">
-                            <%if(!followed){%>
-                                <form action="/Goodsummaries/profilepage/follow/<%=user.name%>" method="POST">
-                                    <button class="follow-button following-option" type="submit">Follow</button>
-                                </form>
-                                <%}else{%>
-                                    <form action="/Goodsummaries/profilepage/unfollow/<%=user.name%>" method="POST">
-                                        <button class="unfollow-button following-option" type="submit">Followed</button>
-                                    </form>
-                                    <%}%>
-                        </div>
-                        <%if(currentUser==true){%>
-                            <a href="/Goodsummaries/profilePage/<%=user.name%>/editProfilePage"
+
+                        <%if(currentUser){%>
+                            <a href="/Goodsummaries/profilePage/<%=profileUser.name%>/editProfilePage"
                                 style="color:#007AB5; text-decoration: underline;">Edit
                                 profile</a>
                             <%}%>
 
+                                <%if(currentUser){%>
+                                    <div class="user-options">
+                                        <%if(!followed){%>
+                                            <form action="/Goodsummaries/profilepage/follow/<%=profileUser.name%>"
+                                                method="POST">
+                                                <button class="follow-button following-option"
+                                                    type="submit">Follow</button>
+                                            </form>
+                                            <%}else{%>
+                                                <form action="/Goodsummaries/profilepage/unfollow/<%=profileUser.name%>"
+                                                    method="POST">
+                                                    <button class="unfollow-button following-option"
+                                                        type="submit">Followed</button>
+                                                </form>
+                                                <%}%>
+                                                    <div class="Goodsummaries/challenges/<%=user.name%>">
+                                                        <a
+                                                            href="/Goodsummaries/challenges/<%=user.name%>">Challenges</a>
+                                                    </div>
+                                    </div>
+                                    <%}%>
                     </div>
+
+
+
+
     </div>
 </div>

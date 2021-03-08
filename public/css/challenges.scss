@@ -17,6 +17,10 @@ $textColor:rgb(133, 132, 132);
 		font-size: 30px;
 		color: $mainColor
 	}
+	
+	a.user-name{
+		color:$accentColor !important;
+	}
 	.challenge-img {
 		margin-bottom: 20px;
 		img{
@@ -40,6 +44,12 @@ $textColor:rgb(133, 132, 132);
 	}
 	progress{
 		width: 105px !important;
+		height:30px;
+	}
+	.challenge-view-link{
+		color:$accentColor;
+		font-size:12px;
 	}
 }
+
 /* || end challenge style*/

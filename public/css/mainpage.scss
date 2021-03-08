@@ -2,7 +2,7 @@
 $mainColor:#727272;
 $secondaryColor2: #f8f2e9;
 $accentColor: #53BCBC;
-$mainfont: Arial;
+$mainfont: "Roboto slab", serif;
 $textColor:rgb(133, 132, 132);
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 
@@ -32,6 +32,6 @@ body {
 
 /*framework*/
 
-.margin_top {
-	margin-top: 80px;
+.margin-top {
+	padding-top: 130px;
 }

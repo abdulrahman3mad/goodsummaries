@@ -1,25 +1,29 @@
 const challenges = require("../models/challenges")
 const books = require("../models/books")
+const users = require("../models/users")
 
 
 
 
 const getChallenge = async (req, res) => {
     const user = req.user
+    let currentUser = false;
 
     if (!user) {
         res.render(`Auth/login`, { errorMakingUser: `` })
     }
     else {
+        if (user.name == req.params.name) {
+            currentUser = true;
+        }
         try {
             let challenge = await challenges.findOne({ userName: user.name, finished: false })
             let previousChallenges = await challenges.find({ userName: user.name })
             let book = await books.find({ _id: challenge.books })
 
-            console.log(challenge.numberOfBooks);
-            console.log(challenge.numberOfSummaries);
 
-            res.render("challengesPackage/challenges", { challenge: challenge, user: user, books: book, previousChallenges: previousChallenges })
+
+            res.render("challengesPackage/challenges", { challenge: challenge, user: user, books: book, previousChallenges: previousChallenges, currentUser: currentUser })
         } catch {
             res.render("challengesPackage/challenges", { user: user, challenge: null })
         }
@@ -44,28 +48,29 @@ function getCurrentDate() {
 }
 
 const addChallenge = async (req, res) => {
-
-
     try {
         const user = req.user
-        let currentDate = getCurrentDate()
 
         const challenge = new challenges({
-            challengeName: req.body.challengeName,
             numberOfBooks: req.body.numberOfBooks,
-            endDate: req.body.endDate,
             userName: user.name
         })
 
-        if (req.body.startDate) {
-            challenge.startDate = req.body.startDate
-        }
-        else {
-            challenge.startDate = currentDate;
-        }
+        user.followers.forEach(async follower => {
+            let userFollower = await users.findOne({ name: follower });
+            userFollower.status.push({
+                userName: user.name,
+                statusMessage: `intend to summarize ${req.body.numberOfBooks} in 2021 :)`,
+                statusLink: `challenges/${user.name}`,
+                seen: false
+            })
+            await userFollower.save()
+        })
         await challenge.save()
-        res.redirect("/Goodsummaries/challenges")
+        res.redirect(`/Goodsummaries/challenges/${req.user.name}`)
+
     } catch {
+        console.log("hello")
         res.render(`errorPage`, { errorMessage: "something went wrong, try to reload the page again" })
     }
 
@@ -75,7 +80,7 @@ const deleteChallenge = async (req, res) => {
     try {
         const id = req.params.id
         await challenges.deleteOne({ _id: id })
-        res.redirect("/Goodsummaries/challenges")
+        res.redirect(`/Goodsummaries/challenges/${req.user.name}`)
     } catch {
         res.render(`errorPage`, { errorMessage: "something went wrong, try to reload the page again" })
     }
@@ -87,7 +92,8 @@ const editChallenge = async (req, res) => {
         let challenge = await challenges.findOne({ _id: id })
         challenge.numberOfBooks = req.body.numberOfBooks
         await challenge.save()
-        res.redirect("/Goodsummaries/challenges")
+        res.redirect(`/Goodsummaries/challenges/${req.user.name}`)
+
     } catch {
         res.render(`errorPage`, { errorMessage: "something went wrong, try to reload the page again" })
     }
