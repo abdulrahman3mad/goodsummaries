@@ -40,7 +40,7 @@ const signUpPost = async (req, res) => {
         //create the token
         const token = jwt.sign({ _id: user._id }, "this is my great website");
         res.cookie("auth-token", token, { httpOnly: true });
-        res.redirect("/Goodsummaries");
+        res.redirect("/");
     } catch {
         res.render("errorPage", { errorMessage: "There is an error, please, reload and try again" });
     }
@@ -64,12 +64,12 @@ const loginPost = async (req, res) => {
     //create the token
     const token = jwt.sign({ _id: user._id }, "this is my great website");
     res.cookie("auth-token", token, { httpOnly: true });
-    res.redirect("/Goodsummaries");
+    res.redirect("/");
 }
 
 const logOut = async (req, res) => {
     res.cookie("auth-token", "..", { maxAge: 1, httpOnly: true })
-    res.redirect("/auth/login")
+    res.redirect("/login")
 }
 
 

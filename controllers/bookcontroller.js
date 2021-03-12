@@ -93,10 +93,10 @@ const addBook = async (req, res) => {
                     challenge.finished = true;
                 }
                 await challenge.save();
-                res.redirect(`/Goodsummaries`);
+                res.redirect(`/`);
 
             } catch {
-                res.redirect(`/Goodsummaries`);
+                res.redirect(`/`);
             }
         }
     } catch (error) {
@@ -115,7 +115,7 @@ function bookSave(book, coverEncoded) {
 const getBook = async (req, res) => {
 
     if (!req.user) {
-        return res.redirect(`/ Auth / login`);
+        return res.redirect(`/login`);
     }
     try {
         const user = req.user;
@@ -151,16 +151,16 @@ const saveBook = async (req, res) => {
     let book = await books.findById(id)
     user.savedBooks.push(book._id)
     await user.save()
-    if (req.originalUrl.includes("book")) res.redirect(`/Goodsummaries/book/${id}`)
-    else res.redirect(`/Goodsummaries`)
+    if (req.originalUrl.includes("book")) res.redirect(`/book/${id}`)
+    else res.redirect(`/`)
 }
 
 const unSaveBook = async (req, res) => {
     let bookNumber = user.savedBooks.indexOf(req.params.id)
     req.user.savedBooks.splice(bookNumber, 1)
     await req.user.save()
-    if (req.originalUrl.includes("book")) res.redirect(`/Goodsummaries/book/${id}`)
-    else res.redirect(`/Goodsummaries`)
+    if (req.originalUrl.includes("book")) res.redirect(`/book/${id}`)
+    else res.redirect(`/`)
 }
 
 
@@ -183,10 +183,10 @@ const updateBook = async (req, res) => {
         book.Summary = req.body.Summary;
         book.Category = req.body.Category;
         await book.save()
-        res.redirect(`/Goodsummaries/book/${id}`);
+        res.redirect(`/book/${id}`);
     }
     catch {
-        res.redirect(`/Goodsummaries/book/${id}`);
+        res.redirect(`/book/${id}`);
     }
 
 }
@@ -200,7 +200,7 @@ const deleteBook = async (req, res) => {
         user.publishedBooks.splice(bookIndex, 1)
         await books.deleteOne({ _id: id })
         await user.save()
-        res.redirect(`/Goodsummaries`);
+        res.redirect(`/`);
     } catch {
         res.redirect(`errorPage`, { errroMessage: `can't get profile page, try to reload the page` });
     }

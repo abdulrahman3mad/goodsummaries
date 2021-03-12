@@ -1,7 +1,6 @@
 const { number } = require("@hapi/joi");
 const mongoose = require("mongoose");
 
-const bookcoverpath = "uploads/bookscover";
 
 const bookSchema = new mongoose.Schema(
   {

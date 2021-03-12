@@ -47,28 +47,24 @@
 
                             <div class="options-inner col-8">
                                 <%if(owner==true){%>
-                                    <a href="/Goodsummaries/book/<%=book._id%>/edit" class="edit">Edit</a>
-                                    <form method="POST" class="delete-form"
-                                        action="/Goodsummaries/book/<%=book._id%>?_method=DELETE">
+                                    <a href="<%=book._id%>/edit" class="edit">Edit</a>
+                                    <form method="POST" class="delete-form" action="<%=book._id%>?_method=DELETE">
                                         <button class="delete" type="submit">Delete</button>
                                     </form>
                                     <%}else if(owner!=true){%>
                                         <%if(!saved){%>
-                                            <form action="/Goodsummaries/book/save/<%=book._id%>" class="save"
-                                                method="POST">
+                                            <form action="save/<%=book._id%>" class="save" method="POST">
                                                 <button class="current-reading" type="submit"><i
                                                         class="far fa-bookmark"></i></button>
                                             </form>
                                             <%}else{%>
-                                                <form action="/Goodsummaries/book/unsave/<%=book._id%>" class="save"
-                                                    method="POST">
+                                                <form action="unsave/<%=book._id%>" class="save" method="POST">
                                                     <button class="current-reading" type="submit"><i
                                                             class="far fa-bookmark active"></i></button>
                                                 </form>
                                                 <%}%>
                                                     <%if(liked==true){%>
-                                                        <form action="/Goodsummaries/book/unlike/<%=book._id%>"
-                                                            class="likes" method="POST">
+                                                        <form action="unlike/<%=book._id%>" class="likes" method="POST">
                                                             <button class="like" type="submit"><i
                                                                     class="fas fa-heart active"></i></button>
                                                             <p class="likes"><span>
@@ -76,8 +72,8 @@
                                                                 </span></p>
                                                         </form>
                                                         <%}else{%>
-                                                            <form action="/Goodsummaries/book/like/<%=book._id%>"
-                                                                class="likes" method="POST">
+                                                            <form action="like/<%=book._id%>" class="likes"
+                                                                method="POST">
                                                                 <button class="like" type="submit"><i
                                                                         class="fas fa-heart "></i></button>
                                                                 <p class="likes"><span>

@@ -39,7 +39,7 @@
 
         <section>
             <div class="container">
-                <form method="POST" action="/Goodsummaries/book/<%=book._id%>?_method=PUT">
+                <form method="POST" action="/book/<%=book._id%>?_method=PUT">
                     <div class="head">
                         <input name="Title" type="text" class="Title" value="<%=book.Title%>">
                         <select id="select" required name="Category">
@@ -68,7 +68,7 @@
                     </div>
 
                     <button type="submit">Publish</button>
-                    <a class="cancel" href="/Goodsummaries/book/<%=book._id%>">Cancel</a>
+                    <a class="cancel" href="/book/<%=book._id%>">Cancel</a>
                 </form>
             </div>
         </section>

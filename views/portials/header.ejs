@@ -1,7 +1,7 @@
 <!--start navbar-->
 <nav class="navbar navbar-expand-lg navbar-light">
     <div class="container">
-        <a class="navbar-brand" href="/Goodsummaries"><img src="../../../images/logo4.png" alt="Logo"> </a>
+        <a class="navbar-brand" href="/"><img src="../../../images/logo4.png" alt="Logo"> </a>
         <button class="navbar-toggler text-left" type="button" data-toggle="collapse" data-target="#home"
             aria-controls="home" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -10,16 +10,15 @@
         <div class="collapse navbar-collapse" id="home">
             <ul class="navbar-nav mr-auto list_items text-center">
                 <li class="nav-item section-elements">
-                    <a class="nav-link Home" href="/Goodsummaries">Home</a>
+                    <a class="nav-link Home" href="/">Home</a>
                 </li>
 
                 <li class="nav-item section-elements">
-                    <a class="nav-link "
-                        href="/<%if(user){%>Goodsummaries/challenges/<%=user.name%><%}else{%>Auth/login <%}%>">challenges</a>
+                    <a class="nav-link " href="/<%if(user){%>/<%=user.name%><%}else{%>login<%}%>">challenges</a>
                 </li>
 
                 <li class="nav-item publish section-elements">
-                    <a class="nav-link" href="/Goodsummaries/publish">Publish</a>
+                    <a class="nav-link" href="/publish">Publish</a>
                 </li>
             </ul>
             <ul class="list-unstyled d-flex justify-content-center utilities text-sm-center">
@@ -41,12 +40,11 @@
                                                 </div>
                                                 <p class="status-writing">
                                                     <span class="user-name">
-                                                        <a href="/Goodsummaries/profilePage/<%=statu.userName%>">
+                                                        <a href="/profilePage/<%=statu.userName%>">
                                                             <%=statu.userName%>
                                                         </a>
                                                     </span>
-                                                    <a href="/Goodsummaries/<%=statu.statusLink%>"
-                                                        class="status-message-link">
+                                                    <a href="/<%=statu.statusLink%>" class="status-message-link">
                                                         <%=statu.statusMessage%>
                                                     </a>
                                                 </p>
@@ -75,19 +73,19 @@
                         <button class="status-button"><i class="fas fa-bell"></i></button>
                     </li>
                     <li class="nav-item profile">
-                        <a class="nav-link" href="/Goodsummaries/profilePage/<%=user.name%>"><img
-                                src="../images/profile_image.png" alt="profile image"></a>
+                        <a class="nav-link" href="/profilePage/<%=user.name%>"><img src="../images/profile_image.png"
+                                alt="profile image"></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="/auth/logout"><i class="fas fa-sign-out-alt"></i></a>
+                        <a class="nav-link" href="/logout"><i class="fas fa-sign-out-alt"></i></a>
                     </li>
 
                     <%}else{%>
                         <li class="nav-item login">
-                            <a class="nav-link " href="/auth/login">Login</a>
+                            <a class="nav-link " href="/login">Login</a>
                         </li>
                         <li class="nav-item signup">
-                            <a class="nav-link " href="/auth/signup">Sign up</a>
+                            <a class="nav-link " href="/signup">Sign up</a>
                         </li>
                         <%}%>
             </ul>

@@ -10,7 +10,7 @@ const getChallenge = async (req, res) => {
     let currentUser = false;
 
     if (!user) {
-        res.render(`Auth/login`, { errorMakingUser: `` })
+        res.render(`login`, { errorMakingUser: `` })
     }
     else {
         if (user.name == req.params.name) {
@@ -67,7 +67,7 @@ const addChallenge = async (req, res) => {
             await userFollower.save()
         })
         await challenge.save()
-        res.redirect(`/Goodsummaries/challenges/${req.user.name}`)
+        res.redirect(`/challenges/${req.user.name}`)
 
     } catch {
         console.log("hello")
@@ -80,7 +80,7 @@ const deleteChallenge = async (req, res) => {
     try {
         const id = req.params.id
         await challenges.deleteOne({ _id: id })
-        res.redirect(`/Goodsummaries/challenges/${req.user.name}`)
+        res.redirect(`/challenges/${req.user.name}`)
     } catch {
         res.render(`errorPage`, { errorMessage: "something went wrong, try to reload the page again" })
     }
@@ -92,7 +92,7 @@ const editChallenge = async (req, res) => {
         let challenge = await challenges.findOne({ _id: id })
         challenge.numberOfBooks = req.body.numberOfBooks
         await challenge.save()
-        res.redirect(`/Goodsummaries/challenges/${req.user.name}`)
+        res.redirect(`/challenges/${req.user.name}`)
 
     } catch {
         res.render(`errorPage`, { errorMessage: "something went wrong, try to reload the page again" })
