@@ -11,19 +11,19 @@ const auth = require("./middelware/auth");
 const challengesRoute = require('./routes/challengeRoute');
 const profileRoute = require("./routes/profileRoutes")
 const compression = require("compression");
+const dotenv = require("dotenv").config();
 app.set("view engine", "ejs");
 
 mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useUnifiedTopology", true);
-const mongoDB =
-  "mongodb+srv://books:Abdo3mad012..@cluster0.ialwd.mongodb.net/booksummries?retryWrites=true&w=majority";
+
 
 mongoose
-  .connect(mongoDB, { useUnifiedTopology: true })
+  .connect(process.env.mongoDB, { useUnifiedTopology: true })
 
-app.listen(3000, () => {
+app.listen(process.env.PORT, () => {
   console.log("has connected");
 })
 
