@@ -27,8 +27,9 @@ a {
 	img {
 		height: 40px;
 	}
-
-
+	a.nav-link{
+		color:$secondaryColor2;
+	}
 }
 nav {
 	background-color: $mainColor;
@@ -59,8 +60,9 @@ nav {
 		li.signup {
 			font-size: 14px;
 			border-radius: 15px;	
+			background-color: #3d9999 !important;
 			&:hover {
-				background-color: #3d9999 !important
+				background-color: #48adad !important
 			}
 		}
 		.status-li{

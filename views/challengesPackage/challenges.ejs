@@ -1,26 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="It's the login page, used to enter the website :)">
-
-    <link rel="preload" href="../../css/challenge.css" as="style" onload='this.rel="stylesheet"'>
-    <link rel="preload" href="../../css/bootstrap.min.css" as="style" onload='this.rel="stylesheet"'>
-    <link rel="preload" href="../../css/header.css" as="style" onload='this.rel="stylesheet"'>
-    <link rel="preload" href="../../css/all.min.css" as="style" onload='this.rel="stylesheet"'>
+    <link rel="stylesheet" href="../../css/challenge.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/all.min.css">
     <title>challenge</title>
 </head>
-
 <body>
     <%-include( "../portials/header" )%>
-
         <div class="challenge-title">
             <img src="../../images/profile_image.png" height=100px />
             <h2>2021 Summarization challenges</h2>
         </div>
-
         <%if(challenge){%>
             <div class="challenge">
                 <div class="container">
@@ -37,7 +32,6 @@
                             let add_challenge = document.querySelector(".add-challenge")
                             let set_input = document.querySelector(".set-input")
                             let title_input = document.querySelector(".title-input")
-
 
                             add_challenge.addEventListener("click", () => {
                                 set_input.classList.remove("d-none")

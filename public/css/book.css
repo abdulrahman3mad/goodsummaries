@@ -1,2 +1,108 @@
-@use 'header';body{font-size:15px;background-color:#eeeeee !important}.book-details .options-inner{margin-top:40px;display:flex;justify-content:center}.book-details .img{margin-top:50px;margin-bottom:30px;width:200px;height:200px}.book-details .img img{display:block;max-width:100%;max-height:100%}.book-details h1.Title{font-size:50px;color:#727272;margin-bottom:0;font-weight:bold}.book-details .book-category{color:grey;margin-top:15px;display:inline-block}.book-details button:not(.like,.save){background-color:#727272;color:white;border:none;padding:2px 5px;border-radius:5px;cursor:pointer}.book-details button:not(.like,.save):hover{background-color:#53BCBC}.book-details .active{color:#53BCBC !important;width:30px;height:30px;line-height:1.5;border:1px solid #53BCBC;border-radius:50%;text-align:center}.book-details form.save button{border:none;background-color:inherit}.book-details form.save button i{cursor:pointer}.book-details form.save button i:hover{color:#53BCBC !important}.book-details form.likes{display:flex;flex-direction:column;align-items:center}.book-details form.likes .like{margin:0 40px;border:none;outline:none}.book-details form.likes .like i{color:#727272;cursor:pointer}.book-details form.likes .like i:hover{color:#53BCBC !important}.book-details .edit{color:#53BCBC;float:left;margin-top:50px;margin-right:20px}.book-details .delete{cursor:pointer;margin-top:50px;background-color:#e93535;float:left;color:white;border:none;padding:2px 5px;border-radius:5px}.book-details span.saved{font-weight:bold;float:right;margin:0 0 0 5px;color:#727272;border:none;padding:2px 5px;border-radius:5px}.book-details .owner{margin-bottom:40px}.book-details .owner span{font-weight:bold;color:#379c9c}.book-details .summary{color:#534e4e;line-height:2.2;font-size:15px}.book-details label{display:block;margin-top:30px}.book-details textarea{background-color:inherit;padding:5px 30px 15px 5px;color:#413c3c}.book-details ::placeholder{font-size:15px}.book-details .image-options-title i{font-size:20px}
+@use 'header';
+body {
+  font-size: 15px;
+  background-color: #eeeeee !important; }
+
+.book-details .options-inner {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center; }
+.book-details .img {
+  margin-top: 50px;
+  margin-bottom: 30px;
+  width: 200px;
+  height: 200px; }
+  .book-details .img img {
+    display: block;
+    max-width: 100%;
+    max-height: 100%; }
+.book-details h1.Title {
+  font-size: 50px;
+  color: #727272;
+  margin-bottom: 0;
+  font-weight: bold; }
+.book-details .book-category {
+  color: grey;
+  margin-top: 15px;
+  display: inline-block; }
+.book-details button:not(.like, .save) {
+  background-color: #727272;
+  color: white;
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px;
+  cursor: pointer; }
+  .book-details button:not(.like, .save):hover {
+    background-color: #53BCBC; }
+.book-details .active {
+  color: #53BCBC !important;
+  width: 30px;
+  height: 30px;
+  line-height: 1.5;
+  border: 1px solid #53BCBC;
+  border-radius: 50%;
+  text-align: center; }
+.book-details form.save button {
+  border: none;
+  background-color: inherit; }
+  .book-details form.save button i {
+    cursor: pointer; }
+    .book-details form.save button i:hover {
+      color: #53BCBC !important; }
+.book-details form.likes {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
+  .book-details form.likes .like {
+    margin: 0 40px;
+    border: none;
+    outline: none; }
+    .book-details form.likes .like i {
+      color: #727272;
+      cursor: pointer; }
+      .book-details form.likes .like i:hover {
+        color: #53BCBC !important; }
+.book-details .edit {
+  color: #53BCBC;
+  float: left;
+  margin-top: 50px;
+  margin-right: 20px; }
+.book-details .delete {
+  cursor: pointer;
+  margin-top: 50px;
+  background-color: #e93535;
+  float: left;
+  color: white;
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px; }
+.book-details span.saved {
+  font-weight: bold;
+  float: right;
+  margin: 0 0 0 5px;
+  color: #727272;
+  border: none;
+  padding: 2px 5px;
+  border-radius: 5px; }
+.book-details .owner {
+  margin-bottom: 40px; }
+.book-details .owner span {
+  font-weight: bold;
+  color: #379c9c; }
+.book-details .summary {
+  color: #534e4e;
+  line-height: 2.2;
+  font-size: 15px; }
+.book-details label {
+  display: block;
+  margin-top: 30px; }
+.book-details textarea {
+  background-color: inherit;
+  padding: 5px 30px 15px 5px;
+  color: #413c3c; }
+.book-details ::placeholder {
+  font-size: 15px; }
+.book-details .image-options-title i {
+  font-size: 20px; }
+
 /*# sourceMappingURL=book.css.map */

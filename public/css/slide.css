@@ -1,2 +1,18 @@
-section.webinfo{padding-top:100px}section.webinfo .infoimage{display:flex;justify-content:center;align-items:center;color:#53BCBC;text-align:center}section.webinfo .infoimage h1{font-weight:bold;font-size:70px}section.webinfo .infoimage p{font-size:25px}
+/* start slide style*/
+section.webinfo {
+  padding-top: 100px; }
+  section.webinfo .infoimage {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #53BCBC;
+    text-align: center; }
+    section.webinfo .infoimage h1 {
+      font-weight: bold;
+      font-size: 70px; }
+    section.webinfo .infoimage p {
+      font-size: 25px; }
+
+/* end slide style*/
+
 /*# sourceMappingURL=slide.css.map */

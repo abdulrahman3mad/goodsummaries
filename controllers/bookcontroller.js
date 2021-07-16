@@ -5,7 +5,7 @@ const acceptedfiles = [`image/jpeg`, `image/png`];
 
 
 function searchRules(req, res) {
-    let searchRules = {}
+    let searchRules = {Category:"Fantsy"}
     if (req.query.Category !== `All` && req.query.Category !== `` && req.query.Category !== undefined) { searchRules.Category = req.query.Category }
     if (req.query.Title != null && req.query.Title !== ``) { searchRules.Title = new RegExp(req.query.Title, "i") }
     if (req.query.Writer != null && req.query.Writer !== ``) { searchRules.Publisher = new RegExp(req.query.Writer, "i") }
@@ -19,7 +19,6 @@ const getMainPage = async (req, res) => {
         const user = req.user
         const searchrules = searchRules(req, res)
         const allBooks = await books.find(searchrules, { WhoLoveIt: 0, Summary: 0, Category: 0 }).limit(2)
-        res.books = allBooks;
 
         if (user) {
             let savedBooks = await books.findOne({ _id: user.savedBooks }, { WhoLoveIt: 0, Summary: 0, Category: 0 })

@@ -5,40 +5,24 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
     <meta name="description" content="It's the login page, used to enter the website :)">
-
+    <link rel="stylesheet" href="../../css/header.css">
+    <link rel="stylesheet" href="../../css/book.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/all.min.css">
     <title>
         <%=book.Title%>
     </title>
-    <link rel="preload" href="../../css/header.css" as="style" onload='this.rel="stylesheet"'>
-    <link rel="preload" href="../../css/book.css" as="style" onload='this.rel="stylesheet"'>
-    <link rel="preload" href="../../css/bootstrap.min.css" as="style" onload='this.rel="stylesheet"'>
-    <link rel="preload" href="../../css/all.min.css" as="style" onload='this.rel="stylesheet"'>
-
-
-
-
-
 </head>
-
-<title>
-</title>
-
-
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0"
     nonce="zxN8Nk4J"></script>
 <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v8.0"
     nonce="3Tk09ksP"></script>
-
 <body>
-
-
-
     <%-include( "../portials/header" )%>
         <section class="book-details">
             <div class="container">
-
                 <div class="image-options-title">
                     <!--start book_options-->
                     <div class="options">
@@ -110,8 +94,6 @@
                 </div>
                 <!--end book summary-->
 
-
-
                 <!--start comment part-->
                 <div class="fb-comments" style="margin-top:30px;" data-href="http://localhost:3000/book/<%=book._id%>"
                     data-numposts="5" data-width="">
@@ -122,8 +104,6 @@
 
         </section>
         <script src="sweetalert2.all.min.js">
-
-
             let deleteButton = document.querySelector(".delete");
             let form = document.querySelector(".delete-form")
 

@@ -2,9 +2,6 @@ const challenges = require("../models/challenges")
 const books = require("../models/books")
 const users = require("../models/users")
 
-
-
-
 const getChallenge = async (req, res) => {
     const user = req.user
     let currentUser = false;
@@ -20,9 +17,6 @@ const getChallenge = async (req, res) => {
             let challenge = await challenges.findOne({ userName: user.name, finished: false })
             let previousChallenges = await challenges.find({ userName: user.name })
             let book = await books.find({ _id: challenge.books })
-
-
-
             res.render("challengesPackage/challenges", { challenge: challenge, user: user, books: book, previousChallenges: previousChallenges, currentUser: currentUser })
         } catch {
             res.render("challengesPackage/challenges", { user: user, challenge: null })
