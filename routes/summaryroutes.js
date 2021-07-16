@@ -2,8 +2,6 @@ const { Router } = require("express");
 const booksroutes = Router();
 const bookcontroller = require("../controllers/bookcontroller");
 
-booksroutes.get("/", bookcontroller.getMainPage);
-booksroutes.get("/search", bookcontroller.getMainPage);
 booksroutes.get("/publish", bookcontroller.getPublishPage);
 booksroutes.post("/book/add", bookcontroller.addBook);
 booksroutes.get("/book/:id", bookcontroller.getBook);

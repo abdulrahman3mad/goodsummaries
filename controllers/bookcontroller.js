@@ -244,7 +244,6 @@ module.exports = {
     getBook,
     editBook,
     deleteBook,
-    getMainPage,
     updateBook,
     getPublishPage,
     saveBook,

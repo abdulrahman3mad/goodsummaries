@@ -3,6 +3,7 @@ const express = require("express");
 const app = express();
 const usersauth = require("./routes/authRoutes");
 const booksRoutes = require("./routes/summaryroutes");
+const homeRouter = require("./routes/homeRouter")
 const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const method_override = require("method-override");
@@ -32,6 +33,7 @@ app.use(cookieParser());
 
 
 app.use("/", usersauth);
+app.use("/", auth, homeRouter)
 app.use("/", auth, booksRoutes);
 app.use("/challenges", auth, challengesRoute);
 app.use("/profilePage", auth, profileRoute);
