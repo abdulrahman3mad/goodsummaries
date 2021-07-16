@@ -4,13 +4,11 @@ const app = express();
 const usersauth = require("./routes/authRoutes");
 const booksRoutes = require("./routes/summaryroutes");
 const cookieParser = require("cookie-parser");
-const bodyparser = require("body-parser");
 const mongoose = require("mongoose");
 const method_override = require("method-override");
 const auth = require("./middelware/auth");
 const challengesRoute = require('./routes/challengeRoute');
 const profileRoute = require("./routes/profileRoutes")
-const compression = require("compression");
 const dotenv = require("dotenv").config();
 app.set("view engine", "ejs");
 
@@ -18,8 +16,6 @@ mongoose.set("useNewUrlParser", true);
 mongoose.set("useFindAndModify", false);
 mongoose.set("useCreateIndex", true);
 mongoose.set("useUnifiedTopology", true);
-
-
 mongoose
   .connect(process.env.mongoDB, { useUnifiedTopology: true })
 
@@ -30,9 +26,7 @@ app.listen(process.env.PORT, () => {
 app.use(cookieParser());
 app.use(method_override("_method"));
 app.use(express.static("public"));
-app.use(compression());
 app.use(express.urlencoded({ extended: false }));
-app.use(bodyparser.json({ limit: "50mb", extended: false }));
 app.use(express.json());
 app.use(cookieParser());
 
